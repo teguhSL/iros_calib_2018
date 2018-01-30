@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  30 JAN 2018 11:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  30 JAN 2018 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2006,98 +2006,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 map/pdftex/updmap/pdftex.map}
 
 
-]) (./sections/method.tex
+]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 6.
-
-<./figures/cspace_graph.pdf, id=12, 345.41948pt x 152.6503pt>
-File: ./figures/cspace_graph.pdf Graphic file (type pdf)
-
-<use ./figures/cspace_graph.pdf>
-Package pdftex.def Info: ./figures/cspace_graph.pdf used on input line 60.
-(pdftex.def)             Requested size: 233.43144pt x 103.1626pt.
- [2 <./figures/cspace_graph.pdf>])
-(./sections/experiments.tex
-
-LaTeX Warning: Reference `fig:setup' on page 3 undefined on input line 5.
-
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 7.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
-
-<./figures/tsp_solvers_times.pdf, id=46, 173.3386pt x 161.91893pt>
-File: ./figures/tsp_solvers_times.pdf Graphic file (type pdf)
-
-<use ./figures/tsp_solvers_times.pdf>
-Package pdftex.def Info: ./figures/tsp_solvers_times.pdf used on input line 42.
-
-(pdftex.def)             Requested size: 121.83871pt x 113.81102pt.
-
-<./figures/tsp_solvers_errors.pdf, id=47, 162.99094pt x 161.91792pt>
-File: ./figures/tsp_solvers_errors.pdf Graphic file (type pdf)
-
-<use ./figures/tsp_solvers_errors.pdf>
-Package pdftex.def Info: ./figures/tsp_solvers_errors.pdf used on input line 43
-.
-(pdftex.def)             Requested size: 114.5654pt x 113.81102pt.
-
-<./figures/metrics_times.pdf, id=48, 166.97682pt x 161.91994pt>
-File: ./figures/metrics_times.pdf Graphic file (type pdf)
-
-<use ./figures/metrics_times.pdf>
-Package pdftex.def Info: ./figures/metrics_times.pdf used on input line 111.
-(pdftex.def)             Requested size: 117.36705pt x 113.81102pt.
-
-<./figures/metrics_duration.pdf, id=49, 162.99094pt x 161.91692pt>
-File: ./figures/metrics_duration.pdf Graphic file (type pdf)
-
-<use ./figures/metrics_duration.pdf>
-Package pdftex.def Info: ./figures/metrics_duration.pdf used on input line 112.
-
-(pdftex.def)             Requested size: 114.5654pt x 113.81102pt.
- [3 <./figures/tsp_solvers_times.pdf> <./figures/tsp_solvers_errors.pdf>]
-<./figures/discrete_times.pdf, id=77, 162.98894pt x 164.55478pt>
-File: ./figures/discrete_times.pdf Graphic file (type pdf)
-
-<use ./figures/discrete_times.pdf>
-Package pdftex.def Info: ./figures/discrete_times.pdf used on input line 184.
-(pdftex.def)             Requested size: 112.73106pt x 113.81102pt.
-
-<./figures/discrete_duration.pdf, id=78, 162.98894pt x 164.55577pt>
-File: ./figures/discrete_duration.pdf Graphic file (type pdf)
-
-<use ./figures/discrete_duration.pdf>
-Package pdftex.def Info: ./figures/discrete_duration.pdf used on input line 185
-.
-(pdftex.def)             Requested size: 112.72609pt x 113.81102pt.
-
-<./figures/methods_times.pdf, id=79, 171.63522pt x 161.91994pt>
-File: ./figures/methods_times.pdf Graphic file (type pdf)
-
-<use ./figures/methods_times.pdf>
-Package pdftex.def Info: ./figures/methods_times.pdf used on input line 221.
-(pdftex.def)             Requested size: 120.64142pt x 113.81102pt.
-
-<./figures/methods_cost.pdf, id=80, 161.28757pt x 160.82585pt>
-File: ./figures/methods_cost.pdf Graphic file (type pdf)
-
-<use ./figures/methods_cost.pdf>
-Package pdftex.def Info: ./figures/methods_cost.pdf used on input line 222.
-(pdftex.def)             Requested size: 114.14087pt x 113.81102pt.
-
-<./figures/methods_duration.pdf, id=81, 293.4483pt x 140.25299pt>
-File: ./figures/methods_duration.pdf Graphic file (type pdf)
-
-<use ./figures/methods_duration.pdf>
-Package pdftex.def Info: ./figures/methods_duration.pdf used on input line 223.
-
-(pdftex.def)             Requested size: 238.12616pt x 113.81102pt.
-) (./sections/conclusions.tex [4 <./figures/metrics_times.pdf> <./figures/metri
-cs_duration.pdf> <./figures/discrete_times.pdf> <./figures/discrete_duration.pd
-f>])
+(Font)              <7> on input line 37.
+) (./sections/method.tex [2])
+(./sections/experiments.tex) (./sections/conclusions.tex)
 Underfull \hbox (badness 1540) in paragraph at lines 85--87
 \OT1/ptm/m/n/10 Fund NGF-2016-01-028 and SMART In-no-va-tion Grant
  []
@@ -2114,48 +2027,26 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[5 <./figures/methods_times.pdf> <./figures/methods_cost.pdf> <./figures/method
-s_duration.pdf>] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[3] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 35905 strings out of 493029
- 813707 string characters out of 6136234
- 983451 words of memory out of 5000000
- 38815 multiletter control sequences out of 15000+600000
- 48280 words of font info for 92 fonts, out of 8000000 for 9000
+ 35814 strings out of 493029
+ 811543 string characters out of 6136234
+ 979351 words of memory out of 5000000
+ 38744 multiletter control sequences out of 15000+600000
+ 41108 words of font info for 85 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
- 55i,15n,92p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 306819 bytes).
+ 55i,9n,92p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (3 pages, 88562 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
+ 46 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

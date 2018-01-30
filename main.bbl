@@ -18,83 +18,74 @@
 \fi
 #2}}
 
-\bibitem{Kuffner2000a}
-J.~Kuffner and S.~LaValle, ``{RRT-connect: An efficient approach to
-  single-query path planning},'' in \emph{IEEE International Conference on
-  Robotics and Automation (ICRA)}, vol.~2, 2000, pp. 995--1001.
+\bibitem{Ginani2011}
+\BIBentryALTinterwordspacing
+L.~S. Ginani and J.~M. S.~T. Motta, ``{Theoretical and practical aspects of
+  robot calibration with experimental verification},'' \emph{Journal of the
+  Brazilian Society of Mechanical Sciences and Engineering}, vol.~33, no.~1,
+  pp. 15--21, 2011. [Online]. Available:
+  \url{http://www.scielo.br/scielo.php?script=sci{\_}arttext{\&}pid=S1678-58782011000100003{\&}lng=en{\&}nrm=iso{\&}tlng=en}
+\BIBentrySTDinterwordspacing
 
-\bibitem{Pham2015}
-Q.-C. Pham, ``{Trajectory Planning},'' in \emph{Handbook of Manufacturing
-  Engineering and Technology}.\hskip 1em plus 0.5em minus 0.4em\relax London:
-  Springer London, 2015, pp. 1873--1887.
+\bibitem{Ye2006}
+S.~H. Ye, Y.~Wang, Y.~J. Ren, and D.~K. Li, ``{Robot calibration using
+  iteration and differential kinematics},'' \emph{Journal of Physics:
+  Conference Series}, vol.~48, no.~1, pp. 1--6, 2006.
 
-\bibitem{Croes1958}
-G.~A. Croes, ``{A Method for Solving Traveling-Salesman Problems},''
-  \emph{Operations Research}, vol.~6, no.~6, pp. 791--812, 1958.
+\bibitem{Nubiola2013}
+A.~Nubiola and I.~A. Bonev, ``{Absolute calibration of an ABB IRB 1600 robot
+  using a laser tracker},'' \emph{Robotics and Computer-Integrated
+  Manufacturing}, vol.~29, no.~1, pp. 236--245, 2013.
 
-\bibitem{Helsgaun2000}
-K.~Helsgaun, ``{An effective implementation of the Lin-Kernighan traveling
-  salesman heuristic},'' \emph{European Journal of Operational Research}, vol.
-  126, no.~1, pp. 106--130, oct 2000.
+\bibitem{Ikits1997}
+\BIBentryALTinterwordspacing
+M.~Ikits and J.~Hollerbach, ``{Kinematic calibration using a plane
+  constraint},'' \emph{Proceedings of the 1997 International Conference on
+  Robotics and Automation}, vol.~2, no.~4, pp. 3191--3196, 1997. [Online].
+  Available:
+  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=606774}
+\BIBentrySTDinterwordspacing
 
-\bibitem{Applegate2011}
-D.~L. Applegate, R.~E. Bixby, V.~Chvatal, and W.~J. Cook, \emph{{The Traveling
-  Salesman Problem : a Computational Study.}}\hskip 1em plus 0.5em minus
-  0.4em\relax Princeton University Press, 2011.
+\bibitem{Zhuang1999}
+H.~Z.~H. Zhuang, S.~Motaghedi, and Z.~Roth, ``{Robot calibration with planar
+  constraints},'' \emph{Proceedings 1999 IEEE International Conference on
+  Robotics and Automation (Cat. No.99CH36288C)}, vol.~1, pp. 1--25, 1999.
 
-\bibitem{Sucan2012}
-I.~A. Sucan, M.~Moll, and L.~E. Kavraki, ``{The Open Motion Planning
-  Library},'' \emph{IEEE Robotics {\&} Automation Magazine}, vol.~19, no.~4,
-  pp. 72--82, 2012.
+\bibitem{Joubair2015}
+\BIBentryALTinterwordspacing
+A.~Joubair and I.~A. Bonev, ``{Non-kinematic calibration of a six-axis serial
+  robot using planar constraints},'' \emph{Precision Engineering}, vol.~40, pp.
+  325--333, 2015. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.precisioneng.2014.12.002}
+\BIBentrySTDinterwordspacing
 
-\bibitem{Meijer2017}
-J.~Meijer, Q.~Lei, and M.~Wisse, ``{Performance study of single-query motion
-  planning for grasp execution using various manipulators},'' in \emph{2017
-  18th International Conference on Advanced Robotics (ICAR)}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, 2017, pp. 450--457.
+\bibitem{QilongZhang2015}
+\BIBentryALTinterwordspacing
+{Qilong Zhang} and R.~Pless, ``{Extrinsic calibration of a camera and laser
+  range finder (improves camera calibration)},'' \emph{2004 IEEE/RSJ
+  International Conference on Intelligent Robots and Systems (IROS) (IEEE Cat.
+  No.04CH37566)}, vol.~3, no. January 2004, pp. 2301--2306, 2015. [Online].
+  Available: \url{http://ieeexplore.ieee.org/document/1389752/}
+\BIBentrySTDinterwordspacing
 
-\bibitem{Achterberg2009}
-T.~Achterberg, ``{SCIP: solving constraint integer programs},''
-  \emph{Mathematical Programming Computation}, vol.~1, no.~1, pp. 1--41, jul
-  2009.
+\bibitem{Unnikrishnan2005}
+\BIBentryALTinterwordspacing
+R.~Unnikrishnan and M.~Hebert, ``{Fast Extrinsic Calibration of a Laser
+  Rangefinder to a Camera},'' \emph{Robotics}, vol. 2005, no. July 2005, p.~23,
+  2005. [Online]. Available:
+  \url{http://www.ri.cmu.edu/pub{\_}files/pub4/unnikrishnan{\_}ranjith{\_}2005{\_}3/unnikrishnan{\_}ranjith{\_}2005{\_}3.pdf}
+\BIBentrySTDinterwordspacing
 
-\bibitem{Bohlin2000}
-R.~Bohlin and L.~Kavraki, ``{Path planning using lazy PRM},'' in \emph{IEEE
-  International Conference on Robotics and Automation (ICRA)}.\hskip 1em plus
-  0.5em minus 0.4em\relax IEEE, 2000, pp. 521--528.
+\bibitem{Li2007}
+G.~Li, Y.~Liu, L.~Dong, X.~Cai, and D.~Zhou, ``{An algorithm for extrinsic
+  parameters calibration of a camera and a laser range finder using line
+  features},'' \emph{IEEE International Conference on Intelligent Robots and
+  Systems}, pp. 3854--3859, 2007.
 
-\bibitem{diankov2010}
-R.~Diankov, ``{Automated Construction of Robotic Manipulation Programs},''
-  Ph.D. dissertation, Carnegie Mellon University, Robotics Institute, aug 2010.
-
-\bibitem{Edan1991}
-Y.~Edan, T.~Flash, U.~Peiper, I.~Shmulevich, and Y.~Sarig, ``{Near-minimum-time
-  task planning for fruit-picking robots},'' \emph{IEEE Transactions on
-  Robotics and Automation}, vol.~7, no.~1, pp. 48--56, 1991.
-
-\bibitem{Yoshikawa1985}
-T.~Yoshikawa, ``{Manipulability of Robotic Mechanisms},'' \emph{The
-  International Journal of Robotics Research}, vol.~4, no.~2, pp. 3--9, jun
-  1985.
-
-\bibitem{Saha2006}
-M.~Saha, T.~Roughgarden, J.-C. Latombe, and G.~S{\'{a}}nchez-Ante, ``{Planning
-  Tours of Robotic Arms among Partitioned Goals},'' \emph{The International
-  Journal of Robotics Research}, vol.~25, no.~3, pp. 207--223, 2006.
-
-\bibitem{Wurll1999}
-C.~Wurll, D.~Henrich, and H.~W{\"{o}}rn, ``{Multi-Goal Path Planning for
-  Industrial Robots},'' in \emph{International Conference on Robotics and
-  Application}, 1999.
-
-\bibitem{Wurll2001}
-C.~Wurll and D.~Henrich, ``{Point-to-point and multi-goal path planning for
-  industrial robots},'' \emph{Journal of Robotic Systems}, vol.~18, no.~8, pp.
-  445--461, 2001.
-
-\bibitem{Helsgaun2015}
-K.~Helsgaun, ``{Solving the equality generalized traveling salesman problem
-  using the Lin-Kernighan-Helsgaun Algorithm},'' \emph{Mathematical Programming
-  Computation}, vol.~7, no.~3, pp. 269--287, sep 2015.
+\bibitem{Vasconcelos2012}
+F.~Vasconcelos, J.~P. Barreto, and U.~Nunes, ``{A minimal solution for the
+  extrinsic calibration of a camera and a laser-rangefinder},'' \emph{IEEE
+  Transactions on Pattern Analysis and Machine Intelligence}, vol.~34, no.~11,
+  pp. 2097--2107, 2012.
 
 \end{thebibliography}

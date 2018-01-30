@@ -1,0 +1,58 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\usetikzlibrary{3d,calc}
+\tikzset{decoration={markings,mark=at position 0.85 with {\arrow{>}}}}
+
+\def\positions{1/0.5,2/0.75,3/0.5,1/2,3/2}
+\def\deltaY{0.35}
+
+\begin{tikzpicture}
+  % Plane
+  \begin{scope}[canvas is zx plane at y=0]
+    \path[planestyle] (0,0) rectangle (3,4);
+    % T-space edges
+    \draw[tedge]  (0.5,1)  --  (0.75,2);
+    \draw[tedge]  (0.75,2) --  (0.5,3);
+    \draw[tedge]  (0.5,3)  --  (2,3);
+    \draw[tedge]  (2,3)    --  (2,1);
+    \draw[tedge]  (2,1)    --  (0.5,1);
+    % T-space vertices
+    \foreach \x/\z  in \positions {
+      \draw[tvertex] (\z,\x) circle (0.1);
+    }
+  \end{scope}
+  % C-space edges
+  \draw[cedge]  (1,2*\deltaY,0.5)  --  (2,4*\deltaY,0.75);
+  \draw[cedge]  (2,4*\deltaY,0.75) --  (3,5*\deltaY,0.5);
+  \draw[cedge]  (3,5*\deltaY,0.5)  --  (3,3*\deltaY,2);
+  \draw[cedge]  (3,3*\deltaY,2)    --  (1,2*\deltaY,2);
+  \draw[cedge]  (1,2*\deltaY,2)    --  (1,2*\deltaY,0.5);
+  % IK groups
+  \draw[group] (1,0,0.5)  --  +(0,5*\deltaY,0);
+  \draw[group] (2,0,0.75) --  +(0,5*\deltaY,0);
+  \draw[group] (3,0,0.5)  --  +(0,5*\deltaY,0);
+  \draw[group] (3,0,2)    --  +(0,5*\deltaY,0);
+  \draw[group] (1,0,2)    --  +(0,5*\deltaY,0);
+  % C-space vertices
+  \foreach \x/\z  in \positions {
+    \foreach \y  in {1,...,5} {
+      \shadedraw [cvertex] (\x,\deltaY*\y,\z) circle (0.075);
+    }
+  }
+  % Visited C-space vertices
+  \shadedraw [cvisited] (1,2*\deltaY,0.5) circle (0.075);
+  \shadedraw [cvisited] (2,4*\deltaY,0.75) circle (0.075);
+  \shadedraw [cvisited] (3,5*\deltaY,0.5) circle (0.075);
+  \shadedraw [cvisited] (3,3*\deltaY,2) circle (0.075);
+  \shadedraw [cvisited] (1,2*\deltaY,2) circle (0.075);
+  % C-space arrow and label
+  \draw[->,>=stealth,thick] (0,0,3) -- node[slabel,above]{Configuration Space}
+                                                                    +(0,2.75,0);
+  % Task space label
+  \path (4,0,0) -- node[slabel,below]{Task Space} (4,0,3);
+\end{tikzpicture}
+
+\end{document}

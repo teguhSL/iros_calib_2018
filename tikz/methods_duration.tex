@@ -1,0 +1,72 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[%
+width=55mm,
+height=40mm,
+scale only axis,
+xmin=0,
+xmax=270,
+xtick={ 0,  25,  50, 100, 150, 200, 245},
+xmajorgrids,
+ymajorgrids,
+ylabel={Task Execution Time [s]},
+xlabel={Number of targets},
+legend style={at={(1.03,1.0)},anchor=north west},
+]
+\addplot coordinates{
+(25, 17.551169974)
+(50, 24.7381084565)
+(100, 50.0823453053)
+(150, 61.8856178555)
+(200, 59.0344399143)
+(245, 73.6487709529)
+};
+\addlegendentry{GLKH ($\mbox{iters}=3000$)};
+
+\addplot coordinates{
+(25, 17.551169974)
+(50, 24.7381084565)
+(100, 50.0823453053)
+(150, 51.6631221824)
+(200, 57.4135615969)
+(245, 73.6487709529)
+};
+\addlegendentry{GLKH ($\mbox{iters}=1000$)};
+
+\addplot coordinates{
+(25, 17.551169974)
+(50, 23.8257892015)
+(100, 38.5218835859)
+(150, 53.1887388855)
+};
+\addlegendentry{GLKH ($\mbox{iters}=200$)};
+
+\addplot coordinates{
+(25, 36.2320197029)
+(50, 91.7443680471)
+(100, 91.1360868291)
+(150, 120.75011296)
+(200, 132.379457914)
+(245, 157.435190647)
+};
+\addlegendentry{TSP C-Space};
+
+\addplot coordinates{
+(25, 20.0128511515)
+(50, 23.3532908989)
+(100, 36.0843071113)
+(150, 42.835566887)
+(200, 48.3347972575)
+(245, 60.0273051121)
+};
+\addlegendentry{RoboTSP};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
+\grid

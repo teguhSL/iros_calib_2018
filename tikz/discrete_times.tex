@@ -1,0 +1,82 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[%
+width=52mm,
+height=40mm,
+scale only axis,
+xtick={1,2,3,4,5, 6},
+xticklabels={$\pi$,$\frac{\pi}{2}$,$\frac{\pi}{3}$,$\frac{\pi}{4}$,$\frac{\pi}{6}$,$\frac{\pi}{12}$},
+xmajorgrids,
+ymajorgrids,
+title={CPU time [s]},
+xlabel={Discretization step size},
+legend pos = north west,
+]
+\addplot coordinates{
+(1, 0.0333721637726)
+(2, 0.0535042285919)
+(3, 0.0959057807922)
+(4, 0.178827047348)
+(5, 0.335489988327)
+(6, 1.31355786324)
+};
+\addlegendentry{$n=25$};
+
+\addplot coordinates{
+(1, 0.0556650161743)
+(2, 0.129473924637)
+(3, 0.249236822128)
+(4, 0.425451040268)
+(5, 0.792681932449)
+(6, 3.32399106026)
+};
+\addlegendentry{$n=50$};
+
+\addplot coordinates{
+(1, 0.126634120941)
+(2, 0.273325204849)
+(3, 0.552968978882)
+(4, 0.871233940125)
+(5, 1.98700118065)
+(6, 7.21071100235)
+};
+\addlegendentry{$n=100$};
+
+\addplot coordinates{
+(1, 0.177655935287)
+(2, 0.376005887985)
+(3, 0.783331155777)
+(4, 1.24559402466)
+(5, 2.55005216599)
+(6, 10.0544402599)
+};
+\addlegendentry{$n=150$};
+
+\addplot coordinates{
+(1, 0.23017001152)
+(2, 0.535627841949)
+(3, 1.00597214699)
+(4, 1.68543505669)
+(5, 3.21958613396)
+(6, 13.7133808136)
+};
+\addlegendentry{$n=200$};
+
+\addplot coordinates{
+(1, 0.272009849548)
+(2, 0.612671852112)
+(3, 1.17748904228)
+(4, 1.93931984901)
+(5, 3.82675886154)
+(6, 17.1843588352)
+};
+\addlegendentry{$n=245$};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

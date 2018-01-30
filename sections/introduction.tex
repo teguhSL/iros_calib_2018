@@ -1,0 +1,39 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Robots have been used in many industrial applications, such as pick and place, spray-painting, and spot-welding. In those applications, the robots either do not need very high accuracy (such as in material handling for large objects), or the robots are programmed online (such as using teaching method), where the important parameter is the repeatability of the robot, not the accuracy. However, there are a lot of interests to use robot on many other applications where the accuracy of the robot becomes very crucial, where the robot has to adapt to each task automatically with a great precision. One such example is robot drilling task. 
+In robot drilling task, the robot is supposed to drill several holes at precisely-defined locations on a workpiece, which can change for each task. To program the robot offline for such a task, the robot has to be able to move to a location very accurately. However, the accuracy of the robot is very often unknown, as the manifacturer only provides the repeatability of the robot. Meanwhile, the robot kinematic parameter used in the controller is normally the standard one used for most of the robot, while in fact each robot will have slightly different kinematics parameters (due to inaccuracy in the manufacturing process, assembly, and operating environment). 
+
+The accuracy of such a robotic system depends on several factors: The accuracy of the robot arm, the accuracy of the measurement system, and the accuracy of the end effector tool. The accuracy of the robot arm is determined by how closely the kinematic parameters of the robot model resembles the actual kinematic parameter of the physical robot. This is affected by the manufacturing process, the assembly process, and the wear and tear during the operation of the robot. To achieve a better accuracy, a robot calibration is normally conducted, either by using an external measurement system (such as motion capture system, or spinarm, or CMM), or by constraining the motion of the end effector. 
+The accuracy of the measurement system can be divided into two parts: the accuracy of the measurement device itself, and the accuracy of the transformation between the measurement frame to the robot frame. A camera system, for example, can give a lot of information, but it is generallly less precise as compared to a laser system. However, the overall accuracy is still determined by the accuracy of the transformation between the measurement coordinate frame to the robot coordinate frame. To obtain accurate transformation, the information from the CAD model is not sufficient, as there will be error during the assembly. A process known as hand-eye calibration is normally used to find such transformation. 
+Lastly, the accuracy of the end effector transformation. This is the transformation from the robot flange to a pre-determined location on the end effector (such as the tip of the drilling bit). Calibration of the end effector is generally known as TCP calibration. 
+
+Here we concern ourselves with solving the first two issues. We propose to use a laser line scanner, attached on the robot arm, to calibrate the kinematics parameters of the robot while at the same time calibrating the transformation between the laser scanner and the robotic arm. 
+The overall procedure is as follows:
+1. The scanner is attached on the robot, and three (approximately) perpendicular planes are set around the robot
+2. The robot is moved to several positions, such that the laser plane intersects each of the plane (one at a time). The data from the laser as well as the joint angles information are collected
+3. An optimization algorithm (Levenberg-Marqueadt) is used to find the optimal robot kinematics parameters, together with the laser-robot transformation, with the following constraints: the projected laser data should correspond to the three planes. 
+
+The proposal has several advantages:
+1. It does not require an external measurement system. The measurement device that we used to calibrate the robot is also the device that will be used on the actual process. 
+2. It does not require specially calibrated object to calibrate the robot. The planes coordinates do not need to be known precisely, only approximately. 
+3. The calibration can be perform for the whole robot workspace, not only a local portion of it. 
+
+
+\section{Related works}
+\label{sec:related}
+- calibration of robot kinematics parameters:
+  using external measurement system:
+  using constraints:1 plane, several plane
+- calibration of laser extrinsic parameter
+  using external
+  using constraints
+  
+- simultaneous calibration
+
+	
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

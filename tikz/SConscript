@@ -1,0 +1,6 @@
+import os, subprocess
+
+# Build tikz files
+env = Environment()
+pdfs = env.PDF(Glob('*.tex'))
+env.NoClean(pdfs)

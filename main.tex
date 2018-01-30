@@ -1,0 +1,100 @@
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\IEEEoverridecommandlockouts
+\overrideIEEEmargins{}
+% Language
+\usepackage[english]{babel}
+% Graphics
+\usepackage[pdftex]{graphicx}
+\usepackage{adjustbox}
+\graphicspath{{./figures/}}
+\DeclareGraphicsExtensions{.pdf,.jpg,.jpeg,.png}
+% Math
+\usepackage[cmex10]{amsmath}
+\usepackage{bm}
+\interdisplaylinepenalty=2500{}
+\usepackage{physics}
+% Floats
+\usepackage{booktabs,multirow}
+\usepackage[caption=false,font=footnotesize]{subfig}
+% Quotes
+\def\enquote#1{``{#1}''}
+% \def\enquote#1{\lq{#1}\rq}
+% Tikz
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.3}
+% URLs
+\usepackage{url}
+% Ref commands
+\newcommand{\fref}[1]{Fig.~\ref{#1}}
+\newcommand{\sfref}[2]{\fref{#1}\,\subref{#2}}
+\newcommand{\tref}[1]{Table~\ref{#1}}
+\newcommand{\sref}[1]{Section~\ref{#1}}
+% Math commands
+\newcommand{\mdof}{\text{\ac{dof}}}
+
+% Acronyms
+\usepackage[acronym,shortcuts]{glossaries}
+\glsdisablehyper
+\newacronym{cip}{CIP}{Constraint Integer Programming}
+\newacronym{dfs}{DFS}{Depth-First Search}
+\newacronym[longplural=Degrees of Freedom]{dof}{DoF}{Degree of Freedom}
+\newacronym{ga}{GA}{Genetic Algorithm}
+\newacronym{glkh}{GLKH}{Generalized Lin-Kernighan-Helsgaun}
+\newacronym{gtsp}{GTSP}{Generalized Traveling Salesman Problem}
+\newacronym{ik}{IK}{Inverse Kinematics}
+\newacronym{lkh}{LKH}{Lin-Kernighan-Helsgaun}
+\newacronym{ros}{ROS}{Robot Operating System}
+\newacronym{rrt}{RRT}{Rapidly-Exploring Random Tree}
+\newacronym{birrt}{BiRRT}{Bidirectional Rapidly-Exploring Random Tree}
+\newacronym{rnn}{RNN}{Recursive Nearest-Neighbor}
+\newacronym{rtsp}{RTSP}{Robotic Task Sequencing Problem}
+\newacronym{scip}{SCIP}{Solving Constraint Integer Programs}
+\newacronym{tsp}{TSP}{Traveling Salesman Problem}
+\glsunset{dof}
+% Definitions
+\newtheorem{definition}{Definition}
+\hyphenation{%
+accel-era-tion
+bi-manual
+classi-cal
+ma-nipu-la-tion
+ma-nipu-la-tor
+pa-rame-ters}
+
+\title{\LARGE
+  \textbf{Simultaneous Calibration of Extrinsic Laser And Robot Kinematics Parameters with Three Planar Constraints}}
+
+\author{Teguh Santoso Lembono, Francisco Su\'{a}rez-Ruiz and Quang-Cuong Pham%
+  \thanks{The authors are with the School of Mechanical and Aerospace
+          Engineering, Nanyang Technological University, Singapore.}}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+% Sections
+\input{./sections/abstract.tex}
+\input{./sections/introduction.tex}
+\input{./sections/method.tex}
+\input{./sections/experiments.tex}
+\input{./sections/conclusions.tex}
+
+
+\section*{Acknowledgment}
+This work was supported in part by NTUitive Gap Fund NGF-2016-01-028
+and SMART Innovation Grant NG000074-ENG.
+
+
+% You can use one of these two commands to balance the last page columns
+\IEEEtriggeratref{7}
+% \IEEEtriggercmd{\enlargethispage{-100mm}}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,references}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

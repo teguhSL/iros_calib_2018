@@ -1,0 +1,115 @@
+\section{RoboTSP algorithm}
+\label{sec:method}
+
+\subsection{Setting}
+
+Consider $n$ targets in the task-space. A tour in the task-space that visits
+each target exactly once is called a \emph{task-space tour}\,\footnote{Strictly
+speaking, a tour requires to return to the first target, so we are making a
+slight abuse of vocabulary here.}. We first compute \ac{ik} solutions for each
+target -- using a suitable discretization for the free-\acp{dof} if necessary. A
+tour in the configuration-space that starts from the robot \enquote{home}
+configuration, visits, for each target, exactly one \ac{ik} solution associated
+with that target, and returns to the \enquote{home} configuration is called a
+\emph{configuration-space tour}. Our objective is to find the fastest
+\emph{collision-free} configuration-space tour subject to the robot constraints
+(e.g. velocity and acceleration bounds).
+
+Let $m_i$ be the number of \ac{ik} solutions found for target~$i$.  If we do not
+take into account obstacles, there are $\qty(n-1)!\qty(\prod_{i=1}^{n} m_{i})$
+possible configuration-space tours (with straight paths) for this task. One
+cannot therefore expect to find the optimal sequence by brute force in practical
+times.
+
+\subsection{Proposed algorithm}
+
+As presented in \sref{sec:introduction}, our method consists in:
+
+\begin{enumerate}
+
+  \item Finding a (near-)optimal task-space tour in a \emph{task-space metric};
+
+  \item Given the order found in Step~1, finding, for each target, the optimal
+  robot configuration, so that the corresponding configuration-space tour has
+  minimal length in a \emph{configuration-space metric} -- collisions are
+  ignored at this stage;
+
+  \item Computing fast collision-free \textit{configuration-space} trajectories
+  by running classical motion planning algorithms (e.g. \ac{rrt}-Connect with
+  post-processing~\cite{Kuffner2000a,Pham2015}) through the configurations found
+  in Step~2 and in the order given by Step~1.
+
+\end{enumerate}
+
+Implementation details and benchmarking results for Steps 1 and 3 are given in \sref{sec:experiments}.
+
+Regarding Step~2, we first construct an undirected graph as depicted in
+\fref{fig:cspace_graph}. Specifically, the graph has $n$ layers, each layer $i$
+contains $m_i$ vertices representing the $m_i$ \ac{ik} solutions of target $i$
+(the targets are ordered according to Step 1), resulting in a total of
+$\sum_{i=1}^{n}{m_i}$ vertices. Next, for $i\in[1,\dots,n-1]$, we add an edge
+between each vertex of layer $i$ and each vertex of layer $i+1$, resulting in a
+total of $\sum_{i=1}^{n-1}{m_{i}m_{i+1}}$ edges. Finally, we add two special
+vertices: \enquote{Start} and \enquote{Goal}, which are associated with the
+robot \enquote{home} configuration, and connected respectively to the $m_1$
+vertices of the first layer and the $m_n$ vertices of the last layer.
+
+\begin{figure}[t]
+  \centering
+  \vspace*{2mm}
+  \includegraphics[width=0.95\linewidth]{cspace_graph}
+  \caption{Graph constructed for Step~2 of the algorithm. The targets are
+  ordered according to Step~1. The shortest path (green lines) connecting the
+  \enquote{Start} and \enquote{Goal} vertices will yield the optimal
+  configuration-space tour that visits the targets in the order specified by
+  Step~1.}
+  \label{fig:cspace_graph}
+\end{figure}
+
+The edge costs are computed according to a configuration-space metric: for
+instance, the cost for the edge joining vertices $\vb*{q}$ and $\vb*{q}'$
+can be given by the Euclidean distance in the configuration space
+$\sqrt{\sum_{k=1}^{\mdof}\qty(q_{k}-q'_{k})^2}$. \sref{sub:metrics_benchmark}
+examines in detail how the choice of such metrics influences the quality of the
+final path. One can note here that the metric should be fast to compute -- in
+particular, collisions are ignored at this stage -- since the costs must be
+computed for all $m_{1} + \sum_{i=1}^{n}{m_{i}m_{i+1}} + m_{n}$ graph edges.
+
+Finally, we run a graph search algorithm to find the shortest path between the
+\enquote{Start} and \enquote{Goal} vertices. By construction, any path between
+the \enquote{Start} and \enquote{Goal} vertices will visit exactly one vertex in
+each layer, in the order specified by Step 1. Conversely, for any choice of
+\ac{ik} solutions for the $n$ targets, there will be a path in the graph between
+the \enquote{Start} and \enquote{Goal} vertices and going through the vertices
+representing these \ac{ik} solutions. Therefore, Step~2 will find the \emph{true
+optimal} selection of \ac{ik} solutions that minimize the total cost, according
+to the specified configuration-space metric, given the order of the targets.
+
+\subsection{Complexity analysis}
+
+For Step~1, it is well-known that \ac{tsp} is NP-complete, which means that
+finding the true optimal tour for $n$ targets has in practice an exponential
+complexity. Many heuristics have been developed over the years to find
+near-optimal tours. For instance, \textit{2-Opt}~\cite{Croes1958} and
+\ac{lkh}~\cite{Helsgaun2000} can find tours in practical times with an
+optimality gap bellow $5\%$ and $1\%$ respectively \cite{Applegate2011}.
+
+For Step~2, let $M$ be an upper-bound of the number of \ac{ik} solutions $m_i$
+per target. The number of graph vertices is then $\order{nM}$ and the number of
+the graph edges is $\order{nM^2}$. Since Dijkstra's algorithm (with binary heap)
+has a complexity in $\order{\abs{E}\log\abs{V}}$ where $\abs{E}$ and $\abs{V}$
+are respectively the number of edges and vertices, Step~2 has a complexity in
+$\order{nM^2\log{\qty(nM)}}$.
+
+For Step~3, one has to make $n-1$ queries to the motion planner, yielding a
+complexity in $\order{n}$. However, as the constant in the $\order{}$ (average
+computation time per motion planning query) is large, the overall computation
+time is dominated by that of Step~3 in our setting. In general, the computation
+time of motion planning queries depends largely on the environment (obstacles),
+see~\cite{Sucan2012,Meijer2017} for recent benchmarking results showing the CPU
+time required when planning practical robot motions.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

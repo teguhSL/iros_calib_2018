@@ -1,0 +1,32 @@
+\usepackage{graphicx}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+% Tikz libraries
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{plotmarks}
+% Math
+\usepackage{pgfmath}
+\usepackage{amsmath}
+
+\pgfplotsset{%
+compat=newest,
+title style={font=\small},
+label style={font=\small},
+tick label style={font=\scriptsize},
+legend style={draw=black,fill=white,legend cell align=left,font=\scriptsize},
+legend image post style={scale=0.75},
+cycle list name=exotic,
+}
+% Marker size for plots
+\tikzset{mark options={mark size=1.75}}
+% Layouts (graphs) parameters
+\tikzset{planestyle/.style={fill=blue!15,draw=black,ultra thin,line join=round}}
+\tikzstyle{cvertex}=[ball color=black!75]
+\tikzstyle{cvisited}=[ball color=black!40!green]
+\tikzstyle{tvertex}=[draw=none,fill=blue,inner sep=0pt]
+\tikzstyle{gtvertex}=[draw=none,fill=black,inner sep=0pt]
+\tikzstyle{tedge}=[postaction={decorate}, thick,color=magenta]
+\tikzstyle{cedge}=[postaction={decorate}, thick,color=black!60!green]
+\tikzstyle{group}=[thin,color=black!85]
+\tikzstyle{slabel}=[midway,sloped,font=\scriptsize]

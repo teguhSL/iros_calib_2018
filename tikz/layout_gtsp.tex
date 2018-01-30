@@ -1,0 +1,55 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\usetikzlibrary{3d,calc}
+\tikzset{decoration={markings,mark=at position 0.85 with {\arrow{>}}}}
+
+\def\xpositions{{0.5,0.75,0.5,2,2}}
+\def\ypositions{{1,2,3,1,3}}
+\def\deltaY{0.35}
+
+\tikzstyle{thinedge}=[ultra thin,color=gray]
+
+\begin{tikzpicture}
+  \begin{scope}[rotate=-90]
+    % Plane
+    \path[planestyle] (0,0) rectangle (2.5,4);
+    % Groups
+    \draw[blue,fill=none,densely dashed] (0.5,0.7) ellipse (0.3 and 0.4);
+    \draw[blue,fill=none,densely dashed] (1,2) ellipse (0.4 and 0.3);
+    \draw[blue,fill=none,densely dashed] (0.5,3.3) ellipse (0.3 and 0.45);
+    \draw[blue,fill=none,densely dashed] (2,3.25) ellipse (0.25 and 0.4);
+    \draw[blue,fill=none,densely dashed] (2,0.75) ellipse (0.25 and 0.4);
+    % Shortest tour
+    \draw[tedge]  (0.5,1)  --  (0.75,2);
+    \draw[tedge]  (0.75,2) --  (0.5,3);
+    \draw[tedge]  (0.5,3)  --  (2,3);
+    \draw[tedge]  (2,3)    --  (2,1);
+    \draw[tedge]  (2,1)    --  (0.5,1);
+    % T-space vertices
+    \foreach \i in {0,...,4} {
+      \draw[gtvertex] (\xpositions[\i],\ypositions[\i]) circle (0.05);
+    }
+    % Group 1
+    \draw[gtvertex] (0.5,0.4) circle (0.05);
+    \draw[gtvertex] (0.35,0.6) circle (0.05);
+    \draw[gtvertex] (0.65,0.7) circle (0.05);
+    % Group 2
+    \draw[gtvertex] (1,2) circle (0.05);
+    \draw[gtvertex] (1.25,2) circle (0.05);
+    \draw[gtvertex] (1.1,1.85) circle (0.05);
+    \draw[gtvertex] (1.1,2.15) circle (0.05);
+    % Group 2
+    \draw[gtvertex] (0.35,3.1) circle (0.05);
+    \draw[gtvertex] (0.5,3.6) circle (0.05);
+    % Group 3
+    \draw[gtvertex] (2,3.5) circle (0.05);
+    % Group 4
+    \draw[gtvertex] (2,0.5) circle (0.05);
+    \draw[gtvertex] (2,0.75) circle (0.05);
+  \end{scope}
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\usetikzlibrary{3d,calc}
+\tikzset{decoration={markings,mark=at position 0.85 with {\arrow{>}}}}
+
+\def\xpositions{{0.5,0.75,0.5,2,2}}
+\def\ypositions{{1,2,3,1,3}}
+\def\deltaY{0.35}
+
+\tikzstyle{thinedge}=[ultra thin,color=lightgray]
+
+\begin{tikzpicture}
+  \begin{scope}[rotate=-90]
+    % Plane
+    \path[planestyle] (0,0) rectangle (2.5,4);
+    % T-space edges
+    \foreach \i in {1,...,4} {
+      \draw[thinedge] (\xpositions[0],\ypositions[0]) --
+                                              (\xpositions[\i],\ypositions[\i]);
+    }
+    \foreach \i in {2,...,4} {
+      \draw[thinedge] (\xpositions[1],\ypositions[1]) --
+                                              (\xpositions[\i],\ypositions[\i]);
+    }
+    \foreach \i in {3,4} {
+      \draw[thinedge] (\xpositions[2],\ypositions[2]) --
+                                              (\xpositions[\i],\ypositions[\i]);
+    }
+    \draw[thinedge] (\xpositions[3],\ypositions[3]) --
+                                              (\xpositions[4],\ypositions[4]);
+    % Shortest tour
+    \draw[tedge]        (0.5,1)  --  (0.75,2);
+    \draw[tedge]        (0.75,2) --  (0.5,3);
+    \draw[tedge]        (0.5,3)  --  (2,3);
+    \draw[tedge]        (2,3)    --  (2,1);
+    \draw[tedge]        (2,1)    --  (0.5,1);
+    % T-space vertices
+    \foreach \i in {0,...,4} {
+      \draw[tvertex] (\xpositions[\i],\ypositions[\i]) circle (0.1);
+    }
+  \end{scope}
+\end{tikzpicture}
+
+\end{document}

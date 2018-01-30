@@ -1,0 +1,69 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[%
+width=50mm,
+height=40mm,
+scale only axis,
+xmin=0,
+xmax=270,
+xtick={ 0,  25,  50, 100, 150, 200, 245},
+xmajorgrids,
+ymajorgrids,
+title={C-space Cost},
+xlabel={Number of targets},
+]
+% GLKH (iters=3000)
+\addplot coordinates{
+(25, 12.7803010693)
+(50, 17.6009526168)
+(100, 28.8976821822)
+(150, 39.6815346155)
+(200, 42.7730057771)
+(245, 48.2893281569)
+};
+
+% GLKH (iters=1000)
+\addplot coordinates{
+(25, 12.7803010693)
+(50, 17.6009526168)
+(100, 28.8976821822)
+(150, 40.4420023656)
+(200, 45.6653223772)
+(245, 48.2893281569)
+};
+
+% GLKH (iters=200)
+\addplot coordinates{
+(25, 12.7803010693)
+(50, 18.9596716098)
+(100, 31.8325963294)
+(150, 37.7273519907)
+};
+
+% TSP C-Space
+\addplot coordinates{
+(25, 30.5621220009)
+(50, 64.6703293455)
+(100, 72.4001538371)
+(150, 97.274483549)
+(200, 99.3164895991)
+(245, 112.761644757)
+};
+
+% RoboTSP
+\addplot coordinates{
+(25, 16.6983092876)
+(50, 21.6373323949)
+(100, 30.3867959149)
+(150, 37.4226107736)
+(200, 41.5853411605)
+(245, 48.3014373342)
+};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

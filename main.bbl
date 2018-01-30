@@ -1,0 +1,100 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{Kuffner2000a}
+J.~Kuffner and S.~LaValle, ``{RRT-connect: An efficient approach to
+  single-query path planning},'' in \emph{IEEE International Conference on
+  Robotics and Automation (ICRA)}, vol.~2, 2000, pp. 995--1001.
+
+\bibitem{Pham2015}
+Q.-C. Pham, ``{Trajectory Planning},'' in \emph{Handbook of Manufacturing
+  Engineering and Technology}.\hskip 1em plus 0.5em minus 0.4em\relax London:
+  Springer London, 2015, pp. 1873--1887.
+
+\bibitem{Croes1958}
+G.~A. Croes, ``{A Method for Solving Traveling-Salesman Problems},''
+  \emph{Operations Research}, vol.~6, no.~6, pp. 791--812, 1958.
+
+\bibitem{Helsgaun2000}
+K.~Helsgaun, ``{An effective implementation of the Lin-Kernighan traveling
+  salesman heuristic},'' \emph{European Journal of Operational Research}, vol.
+  126, no.~1, pp. 106--130, oct 2000.
+
+\bibitem{Applegate2011}
+D.~L. Applegate, R.~E. Bixby, V.~Chvatal, and W.~J. Cook, \emph{{The Traveling
+  Salesman Problem : a Computational Study.}}\hskip 1em plus 0.5em minus
+  0.4em\relax Princeton University Press, 2011.
+
+\bibitem{Sucan2012}
+I.~A. Sucan, M.~Moll, and L.~E. Kavraki, ``{The Open Motion Planning
+  Library},'' \emph{IEEE Robotics {\&} Automation Magazine}, vol.~19, no.~4,
+  pp. 72--82, 2012.
+
+\bibitem{Meijer2017}
+J.~Meijer, Q.~Lei, and M.~Wisse, ``{Performance study of single-query motion
+  planning for grasp execution using various manipulators},'' in \emph{2017
+  18th International Conference on Advanced Robotics (ICAR)}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2017, pp. 450--457.
+
+\bibitem{Achterberg2009}
+T.~Achterberg, ``{SCIP: solving constraint integer programs},''
+  \emph{Mathematical Programming Computation}, vol.~1, no.~1, pp. 1--41, jul
+  2009.
+
+\bibitem{Bohlin2000}
+R.~Bohlin and L.~Kavraki, ``{Path planning using lazy PRM},'' in \emph{IEEE
+  International Conference on Robotics and Automation (ICRA)}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2000, pp. 521--528.
+
+\bibitem{diankov2010}
+R.~Diankov, ``{Automated Construction of Robotic Manipulation Programs},''
+  Ph.D. dissertation, Carnegie Mellon University, Robotics Institute, aug 2010.
+
+\bibitem{Edan1991}
+Y.~Edan, T.~Flash, U.~Peiper, I.~Shmulevich, and Y.~Sarig, ``{Near-minimum-time
+  task planning for fruit-picking robots},'' \emph{IEEE Transactions on
+  Robotics and Automation}, vol.~7, no.~1, pp. 48--56, 1991.
+
+\bibitem{Yoshikawa1985}
+T.~Yoshikawa, ``{Manipulability of Robotic Mechanisms},'' \emph{The
+  International Journal of Robotics Research}, vol.~4, no.~2, pp. 3--9, jun
+  1985.
+
+\bibitem{Saha2006}
+M.~Saha, T.~Roughgarden, J.-C. Latombe, and G.~S{\'{a}}nchez-Ante, ``{Planning
+  Tours of Robotic Arms among Partitioned Goals},'' \emph{The International
+  Journal of Robotics Research}, vol.~25, no.~3, pp. 207--223, 2006.
+
+\bibitem{Wurll1999}
+C.~Wurll, D.~Henrich, and H.~W{\"{o}}rn, ``{Multi-Goal Path Planning for
+  Industrial Robots},'' in \emph{International Conference on Robotics and
+  Application}, 1999.
+
+\bibitem{Wurll2001}
+C.~Wurll and D.~Henrich, ``{Point-to-point and multi-goal path planning for
+  industrial robots},'' \emph{Journal of Robotic Systems}, vol.~18, no.~8, pp.
+  445--461, 2001.
+
+\bibitem{Helsgaun2015}
+K.~Helsgaun, ``{Solving the equality generalized traveling salesman problem
+  using the Lin-Kernighan-Helsgaun Algorithm},'' \emph{Mathematical Programming
+  Computation}, vol.~7, no.~3, pp. 269--287, sep 2015.
+
+\end{thebibliography}

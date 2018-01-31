@@ -19,13 +19,10 @@
 #2}}
 
 \bibitem{Ginani2011}
-\BIBentryALTinterwordspacing
 L.~S. Ginani and J.~M. S.~T. Motta, ``{Theoretical and practical aspects of
   robot calibration with experimental verification},'' \emph{Journal of the
   Brazilian Society of Mechanical Sciences and Engineering}, vol.~33, no.~1,
-  pp. 15--21, 2011. [Online]. Available:
-  \url{http://www.scielo.br/scielo.php?script=sci{\_}arttext{\&}pid=S1678-58782011000100003{\&}lng=en{\&}nrm=iso{\&}tlng=en}
-\BIBentrySTDinterwordspacing
+  pp. 15--21, 2011.
 
 \bibitem{Ye2006}
 S.~H. Ye, Y.~Wang, Y.~J. Ren, and D.~K. Li, ``{Robot calibration using
@@ -38,13 +35,9 @@ A.~Nubiola and I.~A. Bonev, ``{Absolute calibration of an ABB IRB 1600 robot
   Manufacturing}, vol.~29, no.~1, pp. 236--245, 2013.
 
 \bibitem{Ikits1997}
-\BIBentryALTinterwordspacing
 M.~Ikits and J.~Hollerbach, ``{Kinematic calibration using a plane
   constraint},'' \emph{Proceedings of the 1997 International Conference on
-  Robotics and Automation}, vol.~2, no.~4, pp. 3191--3196, 1997. [Online].
-  Available:
-  \url{http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=606774}
-\BIBentrySTDinterwordspacing
+  Robotics and Automation}, vol.~2, no.~4, pp. 3191--3196, 1997.
 
 \bibitem{Zhuang1999}
 H.~Z.~H. Zhuang, S.~Motaghedi, and Z.~Roth, ``{Robot calibration with planar
@@ -59,22 +52,16 @@ A.~Joubair and I.~A. Bonev, ``{Non-kinematic calibration of a six-axis serial
   \url{http://dx.doi.org/10.1016/j.precisioneng.2014.12.002}
 \BIBentrySTDinterwordspacing
 
-\bibitem{QilongZhang2015}
-\BIBentryALTinterwordspacing
+\bibitem{Zhang2004}
 {Qilong Zhang} and R.~Pless, ``{Extrinsic calibration of a camera and laser
-  range finder (improves camera calibration)},'' \emph{2004 IEEE/RSJ
+  range finder (improves camera calibration)},'' in \emph{2004 IEEE/RSJ
   International Conference on Intelligent Robots and Systems (IROS) (IEEE Cat.
-  No.04CH37566)}, vol.~3, no. January 2004, pp. 2301--2306, 2015. [Online].
-  Available: \url{http://ieeexplore.ieee.org/document/1389752/}
-\BIBentrySTDinterwordspacing
+  No.04CH37566)}, vol.~3, no. January 2004, 2004, pp. 2301--2306.
 
 \bibitem{Unnikrishnan2005}
-\BIBentryALTinterwordspacing
 R.~Unnikrishnan and M.~Hebert, ``{Fast Extrinsic Calibration of a Laser
   Rangefinder to a Camera},'' \emph{Robotics}, vol. 2005, no. July 2005, p.~23,
-  2005. [Online]. Available:
-  \url{http://www.ri.cmu.edu/pub{\_}files/pub4/unnikrishnan{\_}ranjith{\_}2005{\_}3/unnikrishnan{\_}ranjith{\_}2005{\_}3.pdf}
-\BIBentrySTDinterwordspacing
+  2005.
 
 \bibitem{Li2007}
 G.~Li, Y.~Liu, L.~Dong, X.~Cai, and D.~Zhou, ``{An algorithm for extrinsic

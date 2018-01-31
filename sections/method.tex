@@ -5,10 +5,38 @@ The calibration setup is depicted in figure ***, where three perpendicular plane
 
 This section provides the detail on how to calibrate both the extrinsic parameters of the LRF and the robot kinematics parameters. First, the initial estimate of the LRF extrinsic parameter is obtained by using linear least-square method. After that, the LRF extrinsic parameters and the robot kinematics parameters are optimized by using nonlinear optimization method. 
 Finally, SVD is used to identify which parameters are identifiable, and the steps to handle the unidentifiable parameters are then presented. 
-\subsection{Obtaining Initial Estimate of the LRF Extrinsic Parameters}
+\subsection{Obtaining Initial Estimate of the \ac{lrf} Extrinsic Parameters}
 \label{sec:first_step}
+For this first step, only one plane is necessary, although all three planes can be used. Arbitrarily the bottom plane $plane 1$ is chosen. The extrinsic parameters of the \ac{lrf}, i.e. the homogeneous transformation from the robot flange coordinate frame to the \ac{lrf} coordinate frame is estimated by the following calculation. 
+Let $p_i$ be one of the data point from the \ac{lrf} which lies on the $plane 1$, $n_1$ be the normal unit vector of $plane 1$, and $d_1$ is the perpendicular distance from the origin of the coordinate system to $plane 1$. $p_1$ has to satisfy the following equation:
+  \begin{equation*}
+  (\vb*{{^B}n_1}) ^T (\vb*{{^B}p_i}) - \vb*{{^B}d_1} = 0
+   \end{equation*}
+  \begin{equation*}
+  (\vb*{{^B}n_1}) ^T ({^B}T_E) ({^E}T_L) (\vb*{{^L}p_i}) - \vb*{{^B}d_1} = 0
+  \end{equation*}
+  \begin{equation*}
+  (\vb*{n_i}) ^T ({^E}T_L) (\vb*{{^L}p_i}) - \vb*{{^B}d_1} = 0
+  \end{equation*}
+  \begin{equation*}
+  (\vb*{x_i})  ^T (\vb*{P_L}) = \vb*{{^B}d_1} -  n_{i,4}
+  \end{equation*}
 
+  
+\begin{multline*}
+  \vb*{x_i} = \left[{^L}p_{i,x}n_{i,1} \quad {^L}p_{i,x}n_{i,2} \quad {^L}p_{i,x}n_{i,3} \quad  {^L}p_{i,z}n_{i,1} \right. \\ 
+\left. {^L}p_{i,z}n_{i,2} \quad {^L}p_{i,z}n_{i,3} \quad n_{i,1} \quad n_{i,1}  \quad n_{i,1}  \right]
+\end{multline*}
 
+\begin{multline*}
+  \vb*{P_L} = \left[r_{11} \quad r_{21} \quad r_{31} \quad r_{13} \quad r_{23} \quad r_{33} \quad r_{14} \quad r_{24}  \quad r_{34} \right] 
+\end{multline*}
+
+  \begin{equation*}
+  \vb*{X}   \vb*{P_L} = \vb*{D}
+  \end{equation*}
+  
+  
 
 
 

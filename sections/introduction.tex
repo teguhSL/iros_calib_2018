@@ -12,9 +12,9 @@ The accuracy of the measurement system can be divided into two parts: the accura
 
 Lastly, the accuracy of the end effector transformation refers to the homogeneous transformation from the robot flange coordinate frame to a pre-determined location on the end effector (such as the tip of the drilling bit). Calibration of the end effector is generally known as TCP calibration. 
 
-In this paper we concern ourselves with solving the first two issues. We propose to use a near-range 2D \ac{lrf}, attached on a robot arm, to calibrate the kinematics parameters of the robot and at the same time also calibrate the extrinsic parameters of the \ac{lrf}. The \ac{lrf} is chosen because it can give very accurate measurement data, both for the calibration and for the subsequent task (such as drilling). The method does not require any other external measurement setup, except three approximately perpendicular planes located around the robot.
+In this paper we concern ourselves with solving the first two issues. We propose to use a near-range 2D \ac{lrf}, attached on a robot arm, to calibrate the kinematics parameters of the robot and at the same time also calibrate the extrinsic parameters of the \ac{lrf}. The \ac{lrf} is chosen because it can give very accurate measurement data, both for the calibration and for the subsequent task (such as drilling). The proposed method is much easier to be implemented as compared to the previous methods, and it does not require expensive measurement device. 
 
-The overall procedure is as follows:
+The overall calibration procedure is as follows:
 \begin{enumerate}
 \item The scanner is attached on the robot, and three (approximately) perpendicular planes are set around the robot. The location (position and orientation) of the planes only needs to be known approximately.
 \item The robot is moved to several positions, such that the \ac{lrf}'s 2D ray intersects each of the plane (one at a time). The data from the \ac{lrf} as well as the joint angles information are collected.

@@ -1,0 +1,37 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[%
+width=52mm,
+height=40mm,
+scale only axis,
+xmajorgrids,
+ymajorgrids,
+ylabel={Position error [mm]},
+xlabel={Plane Parameters Error [deg]},
+ymax = 0.12,
+ymin=0,
+scaled y ticks=false
+]
+%  n=25
+\addplot+ [blue, mark options={scale=0.5}] coordinates{
+(	1	,	0.0799665	)
+(	2	,	0.0880301	)
+(	5	,	0.0716921	)
+(	10	,	0.0846415	)
+(	15	,	0.0801777	)
+(	20	,	0.0961909	)
+(	25	,	0.0748489	)
+(	30	,	0.0944920	)
+};
+
+\end{axis}
+\end{tikzpicture}
+
+
+
+
+\end{document}

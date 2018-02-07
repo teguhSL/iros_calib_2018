@@ -75,6 +75,14 @@ F.~Vasconcelos, J.~P. Barreto, and U.~Nunes, ``{A minimal solution for the
   Transactions on Pattern Analysis and Machine Intelligence}, vol.~34, no.~11,
   pp. 2097--2107, 2012.
 
+\bibitem{Newville2014}
+\BIBentryALTinterwordspacing
+M.~Newville, T.~Stensitzki, D.~B. Allen, and A.~Ingargiola, ``{LMFIT:
+  Non-Linear Least-Square Minimization and Curve-Fitting for Python{\P}},'' sep
+  2014. [Online]. Available:
+  \url{https://doi.org/10.5281/zenodo.11813{\#}.WnrOieCKHFg.mendeley}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Hollerbach1996}
 J.~M. Hollerbach and C.~W. Wampler, ``{The calibration index and taxonomy for
   robot kinematic calibration methods},'' \emph{International Journal of

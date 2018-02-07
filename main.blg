@@ -12,46 +12,48 @@ Database file #2: references.bib
 -- IEEEtran.bst version 1.11 (2003/04/02) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in Newville2014
 
 Done.
-You've used 11 entries,
+You've used 12 entries,
             3975 wiz_defined-function locations,
-            1214 strings with 15942 characters,
-and the built_in function-call counts, 9754 in all, are:
-= -- 838
-> -- 206
+            1220 strings with 16193 characters,
+and the built_in function-call counts, 10217 in all, are:
+= -- 871
+> -- 223
 < -- 108
-+ -- 117
-- -- 29
-* -- 491
-:= -- 1478
-add.period$ -- 22
-call.type$ -- 11
-change.case$ -- 11
++ -- 125
+- -- 33
+* -- 517
+:= -- 1561
+add.period$ -- 24
+call.type$ -- 12
+change.case$ -- 12
 chr.to.int$ -- 237
-cite$ -- 11
-duplicate$ -- 673
-empty$ -- 690
-format.name$ -- 40
-if$ -- 2230
+cite$ -- 13
+duplicate$ -- 711
+empty$ -- 728
+format.name$ -- 45
+if$ -- 2327
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 104
-newline$ -- 55
-num.names$ -- 11
-pop$ -- 196
+int.to.str$ -- 12
+missing$ -- 112
+newline$ -- 60
+num.names$ -- 12
+pop$ -- 219
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 767
+skip$ -- 799
 stack$ -- 0
-substring$ -- 567
-swap$ -- 610
+substring$ -- 568
+swap$ -- 634
 text.length$ -- 29
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
-warning$ -- 0
-while$ -- 52
-width$ -- 13
-write$ -- 139
+warning$ -- 1
+while$ -- 53
+width$ -- 14
+write$ -- 149
+(There was 1 warning)

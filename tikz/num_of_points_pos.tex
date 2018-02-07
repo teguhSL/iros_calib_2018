@@ -1,0 +1,36 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{semilogyaxis}[%
+log ticks with fixed point,
+max space between ticks=20,
+width=52mm,
+height=40mm,
+scale only axis,
+xmajorgrids,
+ymajorgrids,
+ylabel={Position error [mm]},
+xlabel={Number of points per pose},
+]
+%  n=25
+\addplot+ [blue, mark options={scale=0.5}] coordinates{
+(1,2.5215250952)
+(2,0.258257511)
+(3,0.2636175123)
+(4,0.157346119)
+(5,0.1504875798)
+(10,0.0837849329)
+(15,0.1241371286)
+(25,0.1226557632)
+(50,0.0966761626)
+(75,0.0750034882)
+(100,0.0799665189)
+};
+
+\end{semilogyaxis}
+\end{tikzpicture}
+
+\end{document}

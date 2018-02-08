@@ -17,15 +17,15 @@ Warning--empty journal in Newville2014
 Done.
 You've used 13 entries,
             3975 wiz_defined-function locations,
-            1227 strings with 16346 characters,
-and the built_in function-call counts, 11115 in all, are:
-= -- 951
+            1225 strings with 16233 characters,
+and the built_in function-call counts, 11037 in all, are:
+= -- 939
 > -- 240
 < -- 119
 + -- 135
 - -- 35
-* -- 561
-:= -- 1696
+* -- 551
+:= -- 1668
 add.period$ -- 26
 call.type$ -- 13
 change.case$ -- 13
@@ -34,20 +34,20 @@ cite$ -- 14
 duplicate$ -- 773
 empty$ -- 790
 format.name$ -- 48
-if$ -- 2534
+if$ -- 2522
 int.to.chr$ -- 0
 int.to.str$ -- 13
 missing$ -- 121
-newline$ -- 63
+newline$ -- 59
 num.names$ -- 13
-pop$ -- 234
+pop$ -- 236
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 871
+skip$ -- 865
 stack$ -- 0
 substring$ -- 625
-swap$ -- 692
+swap$ -- 690
 text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 5
@@ -55,5 +55,5 @@ type$ -- 0
 warning$ -- 1
 while$ -- 58
 width$ -- 15
-write$ -- 160
+write$ -- 154
 (There was 1 warning)

@@ -80,7 +80,7 @@ In the second step, the data from all the three planes are used to optimize the 
 
 The parameters $\vb*{\Phi}$ consists of the followings:
 \begin{enumerate}
-\item Robot kinematics parameters. We choose the modified DH parameters *** $[a_i \;, \alpha_i \;,\theta_i \;,d_i], i=1, 2, \cdots ,6$ to represent the robot kinematics, so we have 6*4 = 24 DH parameters for a 6 \ac{dof} robot arm
+\item Robot kinematics parameters. We choose the modified DH parameters \cite{Hayati1985} $[a_i \;, \alpha_i \;,\theta_i \;,d_i], i=1, 2, \cdots ,6$ to represent the robot kinematics, so we have 6*4 = 24 DH parameters for a 6 \ac{dof} robot arm
 \item Laser extrinsic parameters. As mentioned in the previous section, we use the axis angle representation for the rotation part $[r_1, r_2, r_3, r_4]$,and the location is represented by 3 numbers $[p_x, p_y, p_z]$. 
 \item Plane parameters. Each plane has 4 parameters $[n_{k,x}, n_{k,y}, n_{k,z}, d_{k}]$, 3 for the unit vector and 1 for the distance, so we have 4*3 = 12 parameters. 
 \end{enumerate}

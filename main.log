@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  8 FEB 2018 17:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  9 FEB 2018 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2036,68 +2036,74 @@ Underfull \hbox (badness 3148) in paragraph at lines 126--130
  []
 
 [4]) (./sections/experiments.tex
-<./figures/laser_pos.pdf, id=39, 181.744pt x 141.90013pt>
+<./figures/laser_pos.pdf, id=39, 165.87772pt x 164.56682pt>
 File: ./figures/laser_pos.pdf Graphic file (type pdf)
 
 <use ./figures/laser_pos.pdf>
-Package pdftex.def Info: ./figures/laser_pos.pdf used on input line 27.
-(pdftex.def)             Requested size: 145.76698pt x 113.81102pt.
+Package pdftex.def Info: ./figures/laser_pos.pdf used on input line 28.
+(pdftex.def)             Requested size: 114.71896pt x 113.81102pt.
 
-<./figures/laser_ori.pdf, id=40, 183.63306pt x 141.89914pt>
+<./figures/laser_ori.pdf, id=40, 167.76677pt x 164.5648pt>
 File: ./figures/laser_ori.pdf Graphic file (type pdf)
 
 <use ./figures/laser_ori.pdf>
-Package pdftex.def Info: ./figures/laser_ori.pdf used on input line 28.
-(pdftex.def)             Requested size: 147.28209pt x 113.81102pt.
+Package pdftex.def Info: ./figures/laser_ori.pdf used on input line 29.
+(pdftex.def)             Requested size: 116.02542pt x 113.81102pt.
 
-<./figures/num_of_poses_pos.pdf, id=41, 183.63507pt x 140.90442pt>
+<./figures/num_of_poses_pos.pdf, id=41, 167.76878pt x 163.5701pt>
 File: ./figures/num_of_poses_pos.pdf Graphic file (type pdf)
 
 <use ./figures/num_of_poses_pos.pdf>
-Package pdftex.def Info: ./figures/num_of_poses_pos.pdf used on input line 40.
-(pdftex.def)             Requested size: 148.32887pt x 113.81102pt.
+Package pdftex.def Info: ./figures/num_of_poses_pos.pdf used on input line 41.
+(pdftex.def)             Requested size: 116.7359pt x 113.81102pt.
 
-<./figures/num_of_poses_ori.pdf, id=42, 194.49564pt x 140.89638pt>
+<./figures/num_of_poses_ori.pdf, id=42, 178.63036pt x 163.56306pt>
 File: ./figures/num_of_poses_ori.pdf Graphic file (type pdf)
 
 <use ./figures/num_of_poses_ori.pdf>
-Package pdftex.def Info: ./figures/num_of_poses_ori.pdf used on input line 41.
-(pdftex.def)             Requested size: 157.11026pt x 113.81102pt.
+Package pdftex.def Info: ./figures/num_of_poses_ori.pdf used on input line 42.
+(pdftex.def)             Requested size: 124.29355pt x 113.81102pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./figures/num_of_points_pos.pdf, id=43, 165.88475pt x 163.56306pt>
+File: ./figures/num_of_points_pos.pdf Graphic file (type pdf)
+
+<use ./figures/num_of_points_pos.pdf>
+Package pdftex.def Info: ./figures/num_of_points_pos.pdf used on input line 51.
+
+(pdftex.def)             Requested size: 115.42497pt x 113.81102pt.
+
+<./figures/num_of_points_ori.pdf, id=44, 170.13461pt x 163.56306pt>
+File: ./figures/num_of_points_ori.pdf Graphic file (type pdf)
+
+<use ./figures/num_of_points_ori.pdf>
+Package pdftex.def Info: ./figures/num_of_points_ori.pdf used on input line 52.
+
+(pdftex.def)             Requested size: 118.3821pt x 113.81102pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5 <./figures/laser_pos.pdf> <./figures/laser_ori.pdf>]
-<./figures/num_of_points_pos.pdf, id=70, 181.75102pt x 140.8974pt>
-File: ./figures/num_of_points_pos.pdf Graphic file (type pdf)
-
-<use ./figures/num_of_points_pos.pdf>
-Package pdftex.def Info: ./figures/num_of_points_pos.pdf used on input line 50.
-
-(pdftex.def)             Requested size: 146.81538pt x 113.81102pt.
-
-<./figures/num_of_points_ori.pdf, id=71, 186.0009pt x 143.64163pt>
-File: ./figures/num_of_points_ori.pdf Graphic file (type pdf)
-
-<use ./figures/num_of_points_ori.pdf>
-Package pdftex.def Info: ./figures/num_of_points_ori.pdf used on input line 51.
-
-(pdftex.def)             Requested size: 147.37332pt x 113.81102pt.
-
-<./figures/plane_param_pos.pdf, id=72, 199.72116pt x 141.89813pt>
+<./figures/plane_param_pos.pdf, id=80, 183.85487pt x 164.5648pt>
 File: ./figures/plane_param_pos.pdf Graphic file (type pdf)
 
 <use ./figures/plane_param_pos.pdf>
-Package pdftex.def Info: ./figures/plane_param_pos.pdf used on input line 64.
-(pdftex.def)             Requested size: 160.19464pt x 113.81102pt.
+Package pdftex.def Info: ./figures/plane_param_pos.pdf used on input line 65.
+(pdftex.def)             Requested size: 127.15175pt x 113.81102pt.
 
-<./figures/plane_param_ori.pdf, id=73, 179.38718pt x 141.89513pt>
+<./figures/plane_param_ori.pdf, id=81, 163.52191pt x 164.56079pt>
 File: ./figures/plane_param_ori.pdf Graphic file (type pdf)
 
 <use ./figures/plane_param_ori.pdf>
-Package pdftex.def Info: ./figures/plane_param_ori.pdf used on input line 65.
-(pdftex.def)             Requested size: 143.88493pt x 113.81102pt.
+Package pdftex.def Info: ./figures/plane_param_ori.pdf used on input line 66.
+(pdftex.def)             Requested size: 113.09471pt x 113.81102pt.
 ) (./sections/conclusions.tex)
+Underfull \vbox (badness 2088) has occurred while \output is active []
+
+
 Underfull \hbox (badness 1540) in paragraph at lines 73--75
 \OT1/ptm/m/n/10 Fund NGF-2016-01-028 and SMART In-no-va-tion Grant
  []
@@ -2124,7 +2130,9 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[7] (./main.aux) ) 
+[7
+
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  35539 strings out of 493029
  808210 string characters out of 6136234
@@ -2133,34 +2141,34 @@ Here is how much of TeX's memory you used:
  41108 words of font info for 85 fonts, out of 8000000 for 9000
  1147 hyphenation exceptions out of 8191
  55i,12n,92p,10410b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (7 pages, 346746 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (7 pages, 351888 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 249 PDF objects out of 1000 (max. 8388607)
+ 202 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

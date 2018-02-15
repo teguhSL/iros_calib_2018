@@ -1,0 +1,37 @@
+\documentclass[tikz]{standalone}
+\input{../tikz/plots_config.pgs}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[%
+width=52mm,
+height=40mm,
+scale only axis,
+xmajorgrids,
+ymajorgrids,
+title={Orientation error [mdeg]},
+xlabel={Plane Parameters Error [deg]},
+ymax = 40,
+ymin=0,
+scaled y ticks=false
+]
+%  n=25
+\addplot+ [blue, mark options={scale=0.5}] coordinates{
+(1,21.6533159618)
+(2,16.1785918137)
+(5,19.6907173667)
+(10,22.0619085306)
+(25,15.2208259677)
+(35,15.3862621543)
+(50,18.6955485899)
+(65,17.7159056727)
+};
+
+\end{axis}
+\end{tikzpicture}
+
+
+
+
+\end{document}

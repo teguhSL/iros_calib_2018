@@ -1,5 +1,5 @@
 \begin{abstract}
-
+Industrial robots are increasingly used in various industrial applications where the robot accuracy becomes very important, and calibrations of the robot kinematics parameters and the measurement system extrinsic parameters are unavoidable. However, the previous calibration approaches are either too cumbersome or dependent on another expensive external measurement system such as laser tracker or measurement spinarm. In this paper, we propose SCALAR, a calibration method to simultaneously improve the extrinsic parameters of a 2D \ac{lrf}, attached on the robot, and the robot kinematics parameters. Three flat planes are located roughly perpendicular to each other around the robot, and for each plane the robot moves the \ac{lrf} to several poses such that the \ac{lrf}'s ray intersect the respective plane. The planar constraints are then used to optimize the calibration parameters by using Levenberg-Marquardt nonlinear optimization algorithm. We demonstrate through simulation that SCALAR can reduce the position and orientation errors of the robot system from 21mm and 4$^o$ to 0.1mm and 0.02$^o$.  
 \end{abstract}
 
 %%% Local Variables:

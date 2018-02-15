@@ -16,7 +16,7 @@
 \centering
 \begin{tabular}{c c c c c}
 \toprule
-i &  \textbf{$\alpha_i$} & \textbf{$a_i$} &  \textbf{$\theta_i$}  & \textbf{$d_i$}\\
+i &  \textbf{$\alpha_i \;[^o]$} & \textbf{$a_i \;[mm]$} &  \textbf{$\theta_i \;[^o]$}  & \textbf{$d_i \;[mm]$}\\
 \midrule
 1 & 0.0 & 0.0 & 0.0 & 345.0\\
 2 & -90.0 & 0.0 & -90.0 & 0.0\\
@@ -38,32 +38,32 @@ To obtain an initial estimate of the \ac{lrf} extrinsic parameters, only the dat
 Let the subscript/superscript $B$, $E$, and $L$ denote the coordinate frame of the robot base, the robot flange, and the \ac{lrf}, while the subscript $i$ and $j$ refer to the \ac{lrf} data point index and the robot pose index respectively. Let $\vb*{p}_{ji}$ be one of the data points from the \ac{lrf} which lies on the $plane 1$, $\vb*{n}_1$ be the normal unit vector of $plane 1$, and $d_1$ be the perpendicular distance from the origin of the robot coordinate system to $plane 1$.  Since $\vb*{p}_1$ is located on the $plane 1$, it has to satisfy the following constraint:
   \begin{equation}
   \label{eq:1}
-  ({^B}\vb*{n}_1) ^T ({^B}\vb*{p}_{ji}) - {^B}d_1 = 0
+  ({^B}\vb*{n}_1) ^T ({^B}\vb*{p}_{ji}) - {^B}l_1 = 0
    \end{equation}
 ${^B}\vb*{p}_{ji}$ depends on the robot pose ${^B}\vb*{T}_{E,j}$ at pose index j and the \ac{lrf} extrinsic parameter ${^E}\vb*{T}_L$, so \eqref{eq:1}  can be expanded,
   \begin{equation}
-  ({^B}\vb*{n}_1) ^T ({^B}\vb*{T}_{E,j}) ({^E}\vb*{T}_L) ({^L}\vb*{p}_{ji}) - {^B}d_1 = 0
+  ({^B}\vb*{n}_1) ^T ({^B}\vb*{T}_{E,j}) ({^E}\vb*{T}_L) ({^L}\vb*{p}_{ji}) - {^B}l_1 = 0
   \end{equation}.
 ${^B}\vb*{n}_1$ and $^{B}d_1$ are known approximately ($[0 \; 0\; 1\;0]$ and $0.0$), ${^B}\vb*{T}_{E,j}$ can be computed from the robot's joint angles at pose index $j$, and ${^L}\vb*{p}_{ji}$ is obtained from the laser. Let $\vb*{n}^{'}_j = ({^B}\vb*{n}_1) ^T ({^B}\vb*{T}_{E,j}) = 
 \left[n^{'}_{j,1} \quad n^{'}_{j,2} \quad n^{'}_{j,3}  \quad n^{'}_{j,4} \right]$, then  
   \begin{equation}
   \label{eq:3}
-  (\vb*{n}^{'}_j) ^T ({^E}\vb*{T}_L) ({^L}\vb*{p}_{ji}) - {^B}d_1 = 0
+  (\vb*{n}^{'}_j) ^T ({^E}\vb*{T}_L) ({^L}\vb*{p}_{ji}) - {^B}l_1 = 0
   \end{equation}
 The only unknown in \eqref{eq:3} is ${^E}\vb*{T}_L$ which has 12 elements $r_{uv}$, where u and v denote the column and the row index of the matrix. Note that the fourth row of ${^E}\vb*{T}_L$ only consists of 0 and 1. 
 Without any loss of generality, let's assume that the data points from the \ac{lrf} lies on the XZ planes in the laser frame $L$, so ${^L}\vb*{p}_{ji} = \left[{^L}p_{i,x} \quad 0 \quad {^L}p_{i,z}\quad 1\right]$. If we expand \eqref{eq:3} and rearrange such that the components of ${^E}\vb*{T}_L$ are stacked together as a vector $\vb*{\Phi}_L$, we have
 \begin{equation}
 \label{eq:4}
-  (\vb*{x}_{ji})  ^T (\vb*{\Phi}_L) = {^B}d_1 -  n^{'}_{j,4}
+  (\vb*{x}_{ji})  ^T (\vb*{\Phi}_L) = {^B}l_1 -  n^{'}_{j,4}
 \end{equation}
 , where 
 \begin{multline}
   \vb*{x}_{ji} = \left[{^L}p_{i,x}\;n^{'}_{j,1} \quad {^L}p_{i,x}\;n^{'}_{j,2}\quad {^L}p_{i,x}\;n^{'}_{j,3}\quad  {^L}p_{i,z}\;n^{'}_{j,1}\right. \\ 
-\left. {^L}p_{i,z}\;n^{'}_{j,2}\quad {^L}p_{i,z}\;n^{'}_{j,3} \quad n^{'}_{j,1} \quad n^{'}_{j,2} \quad n^{'}_{j,3} \right]
+\left. {^L}p_{i,z}\;n^{'}_{j,2}\quad {^L}p_{i,z}\;n^{'}_{j,3} \quad n^{'}_{j,1} \quad n^{'}_{j,2} \quad n^{'}_{j,3} \right]^T
 \end{multline}, 
 and
 \begin{multline}
-  \vb*{\Phi}_L= \left[r_{11} \quad r_{21} \quad r_{31} \quad r_{13} \quad r_{23} \quad r_{33} \quad r_{14} \quad r_{24}  \quad r_{34} \right] 
+  \vb*{\Phi}_L= \left[r_{11} \quad r_{21} \quad r_{31} \quad r_{13} \quad r_{23} \quad r_{33} \quad r_{14} \quad r_{24}  \quad r_{34} \right] ^T
 \end{multline}
 For each data point i, we obtain such equation as in \eqref{eq:4}. With $M$ data points per pose and a total of $N$ robot poses, we have $MN$ such equations. The equations can be stacked together to form the following matrix equation:
 \begin{equation}
@@ -75,14 +75,14 @@ where
 \vb*{X} =\begin{bmatrix}
 {\vb*{x}_{11}}^T \\ {\vb*{x}_{12}}^T  \\ \cdots\\{\vb*{x}_{1M}}^T \\ {\vb*{x}_{21}}^T \\ \cdots\\ {\vb*{x}_{2M}}^T  \\ \cdots \\ {\vb*{x}_{NM}}^T 
 \end{bmatrix} \;, \; \vb*{D} =\begin{bmatrix}
-{^B}d_1 -  n^{'}_{1,4} \\ {^B}d_1 -  n^{'}_{1,4}  \\ \cdots\\ {^B}d_1 -  n^{'}_{1,4}  \\ {^B}d_1 -  n^{'}_{2,4} \\ \cdots\\ {^B}d_1 -  n^{'}_{2,4}  \\ \cdots \\{^B}d_1 -  n^{'}_{N,4} 
+{^B}l_1 -  n^{'}_{1,4} \\ {^B}l_1 -  n^{'}_{1,4}  \\ \cdots\\ {^B}l_1 -  n^{'}_{1,4}  \\ {^B}l_1 -  n^{'}_{2,4} \\ \cdots\\ {^B}l_1 -  n^{'}_{2,4}  \\ \cdots \\{^B}l_1 -  n^{'}_{N,4} 
 \end{bmatrix}
 \end{equation}
 Equation \eqref{eq:7} can be solved by linear least square procedure to obtain $\vb*{\Phi}_L$. ${^E}\vb*{T}_L$ can then be computed as follows:
 \begin{enumerate}
-\item The parameters $[r_{11}, r_{21}, r_{31}]$ and $[r_{13}, r_{23}, r_{33}]$ are supposed to be unit vectors, so they should be normalized. They consistute the first and the third column of the matrix ${^E}T_L$
-\item The parameters $[r_{14}, r_{24}, r_{34}]$ constitutes the position component of the matrix ${^E}T_L$, or its fourth column
-\item The parameters $[r_{12}, r_{22}, r_{32}]$ can be calculated as the cross product of  $[r_{13}, r_{23}, r_{33}]$ and $[r_{11}, r_{21}, r_{31}]$ 
+\item The parameters $[r_{11} \quad r_{21} \quad r_{31}]^T$ and $[r_{13} \quad r_{23} \quad r_{33}]^T$ are supposed to be unit vectors, so they should be normalized. They consistute the first and the third column of the matrix ${^E}T_L$
+\item The parameters $[r_{14} \quad r_{24} \quad r_{34}]^T$ constitutes the position component of the matrix ${^E}T_L$, or its fourth column
+\item The parameters $[r_{12} \quad r_{22} \quad r_{32}]^T$ can be calculated as the cross product of  $[r_{13} \quad r_{23} \quad r_{33}]^T$ and $[r_{11} \quad r_{21} \quad r_{31}]^T$ 
 \end{enumerate}
 
 To use the extrinsic parameters ${^E}\vb*{T}_L$ for the subsequent step, 9 parameters would be too redundant. Therefore, we choose the axis-angle representation for the rotation part of ${^E}T_L$ which gives us 4 parameters $[r_x, r_y, r_z, r_{\theta}]$, and 3 more parameters for the location part $[p_x, p_y, p_z]$. 
@@ -93,17 +93,17 @@ To use the extrinsic parameters ${^E}\vb*{T}_L$ for the subsequent step, 9 param
 In the second step, the data from all the three planes are used to optimize the parameters of the \ac{lrf}, robot kinematics, as well as the plane parameters. The objective function is described as follows:
 
 \begin{equation}
- f (\vb*{\Phi}) =  \sum_{k=1}^{3} \sum_{j=1}^{N} \sum_{i=1}^{M} (({^B}\vb*{n}_1) ^T ({^B}\vb*{p}_{ji}) - {^B}d_1)^2
+ f (\vb*{\Phi}) =  \sum_{k=1}^{3} \sum_{j=1}^{N} \sum_{i=1}^{M} (({^B}\vb*{n}_1) ^T ({^B}\vb*{p}_{ji}) - {^B}l_k)^2
 \end{equation}
 
 The parameters $\vb*{\Phi}$ consists of the followings:
 \begin{enumerate}
 \item Robot kinematics parameters. We choose the modified DH parameters \cite{Hayati1985} $[a_i \;, \alpha_i \;,\theta_i \;,d_i], i=1, 2, \cdots ,6$ to represent the robot kinematics, so we have 6*4 = 24 DH parameters for a 6 \ac{dof} robot arm (refer to \tref{tab:dh_params}). 
-\item Laser extrinsic parameters. As mentioned in the previous section, we use the axis angle representation for the rotation part $[r_x, r_y, r_z, r_{\theta}]$,and the location is represented by 3 numbers $[p_x, p_y, p_z]$. 
-\item Plane parameters. Each plane has 4 parameters $[n_{k,x}, n_{k,y}, n_{k,z}, d_{k}]$, 3 for the unit vector and 1 for the distance, so we have 4*3 = 12 parameters. 
+\item Laser extrinsic parameters. As mentioned in the previous section, we use the axis angle representation for the rotation part $[r_x \quad r_y \quad r_z \quad r_{\theta}]$, and the location is represented by 3 numbers $[p_x \quad p_y\quad p_z]$. 
+\item Plane parameters. Each plane has 4 parameters $[n_{k,x}\quad n_{k,y}\quad n_{k,z} \quad l_{k}]$, 3 for the unit vector and 1 for the distance, so we have 4*3 = 12 parameters. 
 \end{enumerate}
 
-In total, we have 43 parameters to be optimized by minimizing the objective function $f{\Phi}$. To do that, we need to ensure that the number of data points $MN$ exceeds the number of parameters. The optimization problem is then solved by using Levenberg-Marquardt nonlinear optimizer \cite{Newville2014}. For the unit vector parameters ($[r_1, r_2, r_3]$ and  $[n_{k,x}, n_{k,y}, n_{k,z}]$), the following constraints are added to the solver:
+In total, we have 43 parameters to be optimized by minimizing the objective function $f(\vb*{\Phi})$. To do that, we need to ensure that the number of data points $3MN$ exceeds the number of parameters. The optimization problem is then solved by using Levenberg-Marquardt nonlinear optimizer \cite{Newville2014}. For the unit vector parameters ($[r_x \quad r_y \quad r_z ]$ and  $[n_{k,x} \quad n_{k,y} \quad n_{k,z}]$), the following constraints are added to the solver:
 \begin{equation}
 \label{eq:10}
 {r_z} = \sqrt{1 - {r_x}^2 - {r_y}^2}
@@ -119,21 +119,21 @@ The objective function $f(\vb*{\Phi})$ basically uses the constraints that all d
 \subsection{The identifiability of the calibration parameters}
 \label{sec:third_step}
 
-Depending on the chosen robot calibration poses and the choices of the parameters, some of the calibration parameters might not be observable, due to the redundancy among the parameters. This is a critical problem in calibration, as it will result in some of the parameters assuming erratic values and unstable calibration result. To prevent that, we have to first analyse which calibration parameters are identifiable and which are not. 
+Depending on the chosen robot calibration poses and the choices of the parameters, some of the calibration parameters might not be observable due to the redundancy among the parameters. This is a critical problem in calibration, as it will result in some of the parameters assuming erratic values and unstable calibration result. To prevent that, we have to first analyse which calibration parameters are identifiable and which are not. 
 
 Following the approach in \cite{Hollerbach1996} and \cite{Joubair2015}, SVD is applied on the identification Jacobian matrix $\vb*{J}$. $\vb*{J}$ can be computed as follows. Let  $f_{kji}(\Phi)$ be the constraint equation on one of the data point $i$ at the robot pose $j$ and on the plane k:
 \begin{equation}
- f_{kji}(\Phi) =  ({^B}\vb*{n}_k) ^T ({^B}\vb*{p}_{ji}) - {^B}d_k
+ f_{kji}(\vb*{\Phi}) =  ({^B}\vb*{n}_k) ^T ({^B}\vb*{p}_{ji}) - {^B}l_k
 \end{equation}
-Then $vb*{J}$ can be computed by differentiating all the data points $i = 1, \cdots, M$ for all the poses $j = 1, \cdots, N$ and for all the planes $k=1,2,3$, and stack them together as a matrix:
+Then $\vb*{J}$ can be computed by differentiating all the data points $i = 1, \cdots, M$ for all the poses $j = 1, \cdots, N$ and for all the planes $k=1,2,3$, and stack them together as a matrix:
 
 \renewcommand\arraystretch{1.5}
 \begin{equation}
 \vb*{J} = \begin{bmatrix}
- \frac{\partial f_{111}(\Phi)}{\partial\Phi}\\
- \frac{\partial f_{112}(\Phi)}{\partial\Phi}\\
+ \frac{\partial f_{111}(\vb*{\Phi})}{\partial\vb*{\Phi}}\\
+ \frac{\partial f_{112}(\vb*{\Phi})}{\partial\vb*{\Phi}}\\
  \cdots \\
- \frac{\partial f_{3MN}(\Phi)}{\partial\Phi}\\
+ \frac{\partial f_{3MN}(\vb*{\Phi})}{\partial\vb*{\Phi}}\\
 	\end{bmatrix}
 \end{equation}
 

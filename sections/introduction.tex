@@ -16,7 +16,7 @@ The overall calibration procedure is as follows:
 \begin{enumerate}
 \item The \ac{lrf} is attached to the robot, and three perpendicular planes are set around the robot. Only the rough estimate of the position and orientation of the planes are necessary to be known, so the setup can be easily done.
 \item For each plane, the robot is moved to several poses such that the \ac{lrf}'s 2D ray is projected onto the plane. The data from the \ac{lrf} as well as the joint angles information are collected.
-\item An optimization algorithm (Levenberg-Marqueadt) is used to find the optimal robot kinematics parameters together with the \ac{lrf} extrinsic parameters by satifsfing the following constraints: the projected \ac{lrf} data should fall on the three planes. 
+\item Levenberg-Marqueadt optimization algorithm is used to optimize the optimal robot kinematics parameters together with the \ac{lrf} extrinsic parameters with the constraint that the projected \ac{lrf} data should be located on the three planes. 
 \end{enumerate}
 
 The remainder of the paper is as follows. In \sref{sec:related}, we discuss the existing approaches to the calibration problem, both for the robot kinematics and the \ac{lrf} extrinsic parameters, and how SCALAR differs from the others. In \sref{sec:method}, SCALAR is explained in detail. A simulation study is presented in \sref{sec:simulation} to verify the method, and finally we conclude with a few remarks in \sref{sec:conclusions}.  

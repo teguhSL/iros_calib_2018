@@ -28,14 +28,14 @@ i &  \textbf{$\alpha_i \;[^o]$} & \textbf{$a_i \;[mm]$} &  \textbf{$\theta_i \;[
 \end{tabular}
 \end{table}
 
-The calibration setup is depicted in \fref{fig:robot_setup}, where three perpendicular planes ($k=1,2,3$) are installed around the robot. An \ac{lrf} is attached on the robot flange. For each plane, the robot is moved to $N$ poses such that the \ac{lrf} is directed to the respective plane. One data set from the \ac{lrf} consists of hundreds of data points, so $M$ data points are selected randomly from the \ac{lrf} data for each pose, together with the joint angles of the robot. 
+The calibration setup is depicted in \fref{fig:robot_setup}, where three roughly perpendicular planes ($k=1,2,3$) are installed around the robot. An \ac{lrf} is attached on the robot flange. For each plane, the robot is moved to $N$ poses such that the \ac{lrf}'s ray is directed to the respective plane. One data set from the \ac{lrf} consists of hundreds of data points, so $M$ data points are selected randomly from the \ac{lrf} data for each pose, and the robot's joint angles are recorded. 
 
-This section provides the detail on how to calibrate both the extrinsic parameters of the LRF and the robot kinematics parameters. First, the initial estimate of the LRF extrinsic parameter is obtained by using the linear least-square method based on the data from one of the planes. After that, the LRF extrinsic parameters and the robot kinematics parameters are optimized simultaneously to satisfy the three planar constraints, by using the Levenberg Marquardt nonlinear optimization method. At the end of this section, we explain how we can use \ac{svd} to analyse which calibration parameters are identifiable, and the steps to handle the unidentifiable parameters are then presented. 
+This section provides the detail on how to calibrate both the extrinsic parameters of the LRF and the robot kinematics parameters. First, the initial estimate of the LRF extrinsic parameter is obtained by using the linear least-square method based on the data from one of the planes. After that, the LRF extrinsic parameters and the robot kinematics parameters are optimized simultaneously to satisfy the three planar constraints, by using Levenberg Marquardt nonlinear optimization method. Finally, we explain how we can use \ac{svd} to analyse which calibration parameters are identifiable, and the steps to handle the unidentifiable parameters are then presented. 
 \subsection{Obtaining the Initial Estimate of the \ac{lrf} Extrinsic Parameters}
 \label{sec:first_step}
 To obtain an initial estimate of the \ac{lrf} extrinsic parameters, only the data from one plane is necessary. Arbitrarily, the bottom plane $plane 1$ is chosen. The extrinsic parameters of the \ac{lrf} ${^E}\vb*{T}_L$, i.e. the homogeneous transformation from the robot flange coordinate frame to the \ac{lrf} coordinate frame, is estimated by the following calculation. 
 
-Let the subscript/superscript $B$, $E$, and $L$ denote the coordinate frame of the robot base, the robot flange, and the \ac{lrf}, while the subscript $i$ and $j$ refer to the \ac{lrf} data point index and the robot pose index respectively. Let $\vb*{p}_{ji}$ be one of the data points from the \ac{lrf} which lies on the $plane 1$, $\vb*{n}_1$ be the normal unit vector of $plane 1$, and $d_1$ be the perpendicular distance from the origin of the robot coordinate system to $plane 1$.  Since $\vb*{p}_1$ is located on the $plane 1$, it has to satisfy the following constraint:
+Let the subscript/superscript $B$, $E$, and $L$ denote the coordinate frame of the robot base, the robot flange, and the \ac{lrf}, while the subscript $i$ and $j$ refer to the \ac{lrf} data point index and the robot pose index respectively. Let $\vb*{p}_{ji}$ be one of the data points from the \ac{lrf} which lies on the $plane 1$, $\vb*{n}_1$ be the normal unit vector of $plane 1$, and $l_1$ be the perpendicular distance from the origin of the robot coordinate system to $plane 1$.  Since $\vb*{p}_{ji}$ is located on the $plane 1$, it has to satisfy the following constraint:
   \begin{equation}
   \label{eq:1}
   ({^B}\vb*{n}_1) ^T ({^B}\vb*{p}_{ji}) - {^B}l_1 = 0
@@ -44,14 +44,14 @@ ${^B}\vb*{p}_{ji}$ depends on the robot pose ${^B}\vb*{T}_{E,j}$ at pose index j
   \begin{equation}
   ({^B}\vb*{n}_1) ^T ({^B}\vb*{T}_{E,j}) ({^E}\vb*{T}_L) ({^L}\vb*{p}_{ji}) - {^B}l_1 = 0
   \end{equation}.
-${^B}\vb*{n}_1$ and $^{B}d_1$ are known approximately ($[0 \; 0\; 1\;0]$ and $0.0$), ${^B}\vb*{T}_{E,j}$ can be computed from the robot's joint angles at pose index $j$, and ${^L}\vb*{p}_{ji}$ is obtained from the laser. Let $\vb*{n}^{'}_j = ({^B}\vb*{n}_1) ^T ({^B}\vb*{T}_{E,j}) = 
+${^B}\vb*{n}_1$ and $^{B}l_1$ are known approximately ($[0 \; 0\; 1\;0]$ and $0.0$), ${^B}\vb*{T}_{E,j}$ can be computed from the robot's joint angles at pose index $j$, and ${^L}\vb*{p}_{ji}$ is obtained from the laser. Let $\vb*{n}^{'}_j = ({^B}\vb*{n}_1) ^T ({^B}\vb*{T}_{E,j}) = 
 \left[n^{'}_{j,1} \quad n^{'}_{j,2} \quad n^{'}_{j,3}  \quad n^{'}_{j,4} \right]$, then  
   \begin{equation}
   \label{eq:3}
   (\vb*{n}^{'}_j) ^T ({^E}\vb*{T}_L) ({^L}\vb*{p}_{ji}) - {^B}l_1 = 0
   \end{equation}
 The only unknown in \eqref{eq:3} is ${^E}\vb*{T}_L$ which has 12 elements $r_{uv}$, where u and v denote the column and the row index of the matrix. Note that the fourth row of ${^E}\vb*{T}_L$ only consists of 0 and 1. 
-Without any loss of generality, let's assume that the data points from the \ac{lrf} lies on the XZ planes in the laser frame $L$, so ${^L}\vb*{p}_{ji} = \left[{^L}p_{i,x} \quad 0 \quad {^L}p_{i,z}\quad 1\right]$. If we expand \eqref{eq:3} and rearrange such that the components of ${^E}\vb*{T}_L$ are stacked together as a vector $\vb*{\Phi}_L$, we have
+Without any loss of generality, let's assume that the data points from the \ac{lrf} lie on the XZ planes of the laser frame $L$, so ${^L}\vb*{p}_{ji} = \left[{^L}p_{i,x} \quad 0 \quad {^L}p_{i,z}\quad 1\right]$. If we expand \eqref{eq:3} and rearrange such that the components of ${^E}\vb*{T}_L$ are stacked together as a vector $\vb*{\Phi}_L$, we have
 \begin{equation}
 \label{eq:4}
   (\vb*{x}_{ji})  ^T (\vb*{\Phi}_L) = {^B}l_1 -  n^{'}_{j,4}
@@ -65,7 +65,7 @@ and
 \begin{multline}
   \vb*{\Phi}_L= \left[r_{11} \quad r_{21} \quad r_{31} \quad r_{13} \quad r_{23} \quad r_{33} \quad r_{14} \quad r_{24}  \quad r_{34} \right] ^T
 \end{multline}
-For each data point i, we obtain such equation as in \eqref{eq:4}. With $M$ data points per pose and a total of $N$ robot poses, we have $MN$ such equations. The equations can be stacked together to form the following matrix equation:
+For each data point $i$, we obtain such equation as in \eqref{eq:4}. With $M$ data points per pose and a total of $N$ robot poses, we have $NM$ such equations. The equations can be stacked together to form the following matrix equation:
 \begin{equation}
 \label{eq:7}
   \vb*{X}   \vb*{\Phi}_L= \vb*{D}
@@ -103,7 +103,7 @@ The parameters $\vb*{\Phi}$ consists of the followings:
 \item Plane parameters. Each plane has 4 parameters $[n_{k,x}\quad n_{k,y}\quad n_{k,z} \quad l_{k}]$, 3 for the unit vector and 1 for the distance, so we have 4*3 = 12 parameters. 
 \end{enumerate}
 
-In total, we have 43 parameters to be optimized by minimizing the objective function $f(\vb*{\Phi})$. To do that, we need to ensure that the number of data points $3MN$ exceeds the number of parameters. The optimization problem is then solved by using Levenberg-Marquardt nonlinear optimizer \cite{Newville2014}. For the unit vector parameters ($[r_x \quad r_y \quad r_z ]$ and  $[n_{k,x} \quad n_{k,y} \quad n_{k,z}]$), the following constraints are added to the solver:
+In total, we have 43 parameters to be optimized by minimizing the objective function $f(\vb*{\Phi})$. To do that, we need to ensure that the number of data points $3NM$ exceeds the number of parameters. The optimization problem is then solved by using Levenberg-Marquardt nonlinear optimizer \cite{Newville2014}. For the unit vector parameters ($[r_x \quad r_y \quad r_z ]$ and  $[n_{k,x} \quad n_{k,y} \quad n_{k,z}]$), the following constraints are added to the solver:
 \begin{equation}
 \label{eq:10}
 {r_z} = \sqrt{1 - {r_x}^2 - {r_y}^2}
@@ -114,7 +114,7 @@ n_{k,z} = \sqrt{1 - {n_{k,x}}^2 - {n_{k,y}}^2}
 \end{equation}
 
 
-The objective function $f(\vb*{\Phi})$ basically uses the constraints that all data points from the \ac{lrf} have to be on the respective plane. \cite{Zhuang1999} proved that such constraints are essentially equivalent to the calibration of a robot using end-point measurement. Further analysis on the observability of the parameters will be presented on the next section. 
+The objective function $f(\vb*{\Phi})$ basically uses the constraints that all data points from the \ac{lrf} have to fall on the respective plane. Zhuang et al. \cite{Zhuang1999} prove that calibration with such constraints is essentially equivalent to the calibration of a robot using end-point measurement in unconstrained calibration. Further analysis on the observability of the parameters will be presented in the next section. 
 
 \subsection{The identifiability of the calibration parameters}
 \label{sec:third_step}

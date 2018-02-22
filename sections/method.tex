@@ -123,9 +123,10 @@ Depending on the chosen robot calibration poses and the choices of the parameter
 
 Following the approach in \cite{Hollerbach1996} and \cite{Joubair2015}, SVD is applied on the identification Jacobian matrix $\vb*{J}$. $\vb*{J}$ can be computed as follows. Let  $f_{kji}(\Phi)$ be the constraint equation on one of the data point $i$ at the robot pose $j$ and on the plane k:
 \begin{equation}
+\label{eq:12}
  f_{kji}(\vb*{\Phi}) =  ({^B}\vb*{n}_k) ^T ({^B}\vb*{p}_{ji}) - {^B}l_k
 \end{equation}
-Then $\vb*{J}$ can be computed by differentiating all the data points $i = 1, \cdots, M$ for all the poses $j = 1, \cdots, N$ and for all the planes $k=1,2,3$, and stack them together as a matrix:
+Then $\vb*{J}$ can be computed by differentiating \eqref{eq:12} for all the data points $i = 1, \cdots, M$ at robot poses $j = 1, \cdots, N$ and for all the planes $k=1,2,3$, and stack them together as a matrix,
 
 \renewcommand\arraystretch{1.5}
 \begin{equation}
@@ -135,20 +136,20 @@ Then $\vb*{J}$ can be computed by differentiating all the data points $i = 1, \c
  \cdots \\
  \frac{\partial f_{3MN}(\vb*{\Phi})}{\partial\vb*{\Phi}}\\
 	\end{bmatrix}
-\end{equation}
+\end{equation}. 
 
 We can then apply SVD on matrix $\vb*{J}$:
 
 \begin{equation}
  \vb*{J} = \vb*{U}\vb*{\Sigma}\vb*{V}^T
 \end{equation}
-Note that for this identification step, the parameters $[r_z, n_{1,z}, n_{2,z}, n_{3,z}]$ are excluded from the parameter vector $\Phi$, since those four parameters are obtained as linear combinations of other parameters (Equation \eqref{eq:10} and \eqref{eq:11}). That leaves us with 43-4 = 39 parameters in $\vb*{\Phi}$, which correlates to the 39 singular numbers in $\Sigma$. The number of singular values with the value of zero in $\Sigma$ is then equal to the number of unidentifiable parameters. For a given zero-value singular number $\sigma_r$, the rth column vector of matrix $\vb*{V}$ is the linear combination of the parameters $\vb*{\Phi}$ which cannot be identified independently. 
+Note that for this identification step, the parameters $[r_z, n_{1,z}, n_{2,z}, n_{3,z}]$ are excluded from the parameter vector $\Phi$, since those four parameters are obtained as linear combinations of other parameters (Equation \eqref{eq:10} and \eqref{eq:11}). That leaves us with 43-4 = 39 parameters in $\vb*{\Phi}$, which correlates to the 39 singular numbers in $\Sigma$. The number of singular values with the value of zero in $\Sigma$ is then equal to the number of unidentifiable parameters. For a given zero-value singular number $\sigma_r$, the r\textit{th} column vector of matrix $\vb*{V}$ is the linear combination of the parameters $\vb*{\Phi}$ which cannot be identified independently. 
 In our case, out of the 39 parameters, there are 7 redundant parameters. By analysing the matrix $\vb*{V}$, those 7 redundant parameters are due to:
 \begin{enumerate}
-\item The parameters $d_6$ (the translation along the z-axis of the 6th link frame on the flange) and $p_z$ (the z coordinate of the \ac{lrf} frame) are redundant. This has obvious physical meaning, because if we shift the origin of the frame 6 in its z direction, we can compensate by shifting the origin of the \ac{lrf} frame in the opposite direction
+\item The parameters $d_6$ (the translation along the z-axis of the 6th link frame on the flange) and $p_z$ (the z coordinate of the \ac{lrf} frame) are redundant. This has obvious physical meaning, because if we shift the origin of the frame 6 in its z direction by changing $d_6$, we can compensate by shifting the origin of the \ac{lrf} frame in the opposite direction by changing $p_z$.
 \item The parameters $\theta_6$ and $r_\theta$ are redundant. These are the rotation of the last link and the rotation of the \ac{lrf} frame, both around the same z-axis. 
-\item The parameters $d_2$ and $d_3$ are redundant. We can shift the frame 2 in its z direction, and compensate by shifting the frame 3 in the other direction. 
-\item Lastly, we have four redundant parameters as the linear combination of the DH parameter of the first link ($a_1, \alpha_1, \theta_1, d_1$) and all the three planes' parameters. Physically, this relates to the fact that we can adjust the location of the base frame freely by changing the value of ($a_1, \alpha_1, \theta_1, d_1$), and all the planes' parameters will adjust according to the new base location. In other words, the base coordinate is not constrained, or it is "floating"
+\item The parameters $d_2$ and $d_3$ are redundant. These correspond to the shift in the z-axis direction of the 2\textit{nd} and 3\textit{rd} link frames respectively, which are along the same direction, so they will compensate each other. 
+\item Lastly, we have four redundant parameters due to the linear combination of the DH parameter of the first link ($a_1, \alpha_1, \theta_1, d_1$) and all the three planes' parameters. Physically, this relates to the fact that we can adjust the location of the base frame freely by changing the value of ($a_1, \alpha_1, \theta_1, d_1$), and all the planes' parameters will adjust according to the new base location. In other words, the base coordinate is not constrained (floating). 
 \end{enumerate}
 
 For each pair of the redundant parameters, we can assign a fix value to one of the parameters. In this case, we set the value of the parameters [$d_6, \theta_6, d_2, a_1, \alpha_1, \theta_1, d_1$] to maintain their initial model's values. 

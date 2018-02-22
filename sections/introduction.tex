@@ -16,7 +16,7 @@ The overall calibration procedure is as follows:
 \begin{enumerate}
 \item The \ac{lrf} is attached to the robot, and three perpendicular planes are set around the robot. Only the rough estimate of the position and orientation of the planes are necessary to be known, so the setup can be easily done.
 \item For each plane, the robot is moved to several poses such that the \ac{lrf}'s 2D ray is projected onto the plane. The data from the \ac{lrf} as well as the joint angles information are collected.
-\item Levenberg-Marqueadt optimization algorithm is used to optimize the optimal robot kinematics parameters together with the \ac{lrf} extrinsic parameters with the constraint that the projected \ac{lrf} data should be located on the three planes. 
+\item Levenberg-Marqueadt optimization algorithm is used to optimize the optimal robot kinematics parameters together with the \ac{lrf} extrinsic parameters, using the geometric constraint that the projected \ac{lrf} data should be located on the three planes. 
 \end{enumerate}
 
 The remainder of the paper is as follows. In \sref{sec:related}, we discuss the existing approaches to the calibration problem, both for the robot kinematics and the \ac{lrf} extrinsic parameters, and how SCALAR differs from the others. In \sref{sec:method}, SCALAR is explained in detail. A simulation study is presented in \sref{sec:simulation} to verify the method, and finally we conclude with a few remarks in \sref{sec:conclusions}.  
@@ -68,7 +68,7 @@ Li et al. \cite{Li2007} use a specially designed checkerboard to calibrate the e
 
 SCALAR can be seen as a combination of the algorithm for extrinsic calibration of an \ac{lrf} \cite{Zhang2004} and the algorithm for calibration of robot kinematics parameter using three planar constraints \cite{Joubair2015}. It has the following advantages as compared to the other calibration approaches:
 \begin{enumerate}
-\item SCALAR simultaneously calibrates both the \ac{lrf} extrinsic parameters and the robot kinematics parameters. As calibration process is often cumbersome, this saves a lot of time and effort.
+\item SCALAR simultaneously calibrates both the \ac{lrf} extrinsic parameters and the robot kinematics parameters. As calibration process is often cumbersome, this saves a lot of time and effort. Moreover, the errors in robot kinematics affect the extrinsic calibration accuracy, and vice versa. Hence, calibrating both parameters simultaneously result in better accuracy. 
 \item SCALAR does not need an additional camera to calibrate the \ac{lrf}, unlike \cite{Zhang2004}.
 \item SCALAR does not need another expensive external measurement system. The measurement is done using the \ac{lrf} that will also be used in the subsequent robot task, hence it does not incur additional cost. Moveover, an \ac{lrf} can achieve very high accuracy at much lower cost as compared to the commonly used measurement systems such as Vicon or Faro Laser Tracker. 
 \item SCALAR does not need a precisely manufactured calibration object such as the granite cube in \cite{Joubair2015}, which requires the planes' position and orientation to be known accurately. SCALAR only requires

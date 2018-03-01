@@ -12,21 +12,42 @@ xmajorgrids,
 ymajorgrids,
 title={Position error [mm]},
 xlabel={Plane Parameters Error [mm]},
-ymax = 0.20,
+ymax = 0.40,
 ymin=0,
-scaled y ticks=false
+scaled y ticks=false,
+legend pos=north east,
 ]
-%  n=25
-\addplot+ [blue, mark options={scale=0.5}] coordinates{
-(1,0.0781773705)
-(2,0.082564314)
-(5,0.0663506921)
-(10,0.087798001)
-(25,0.0766196849)
-(35,0.0747462014)
-(50,0.078007265)
-(65,0.0751102148)
+
+\addplot+ [red, mark options={scale=0.5}] coordinates{
+(1,0.1751792632)
+(2,0.1725904488)
+(5,0.2200770848)
+(10,0.1773608736)
+(25,0.1614597556)
+(35,0.1742872899)
+(50,0.2117951007)
+(100,0.1753608066)
+
+
+
+
 };
+\addlegendentry{Maximum};
+
+\addplot+ [blue, mark options={scale=0.5}] coordinates{
+(1,0.0785440836)
+(2,0.0838183736)
+(5,0.1042764882)
+(10,0.0783218322)
+(25,0.0801206406)
+(35,0.0777025664)
+(50,0.112106364)
+(100,0.0703210724)
+
+
+
+};
+\addlegendentry{Average};
 
 \end{axis}
 \end{tikzpicture}

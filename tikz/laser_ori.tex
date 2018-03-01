@@ -12,19 +12,30 @@ xmajorgrids,
 ymajorgrids,
 title={Orientation error [mdeg]},
 xlabel={$\sigma_{\rm{noise}}$ [mm]},
-xtick={1,2,3,4,5,6},
-xticklabels={2.0, 1.0, 0.5, 0.1, 0.05, 0.01}
+xtick={1,2,3,4,5},
+xticklabels={1.0, 0.5, 0.1, 0.05, 0.01},
+legend pos=north east,
 ]
-%  n=25
-\addplot+ [blue, mark options={scale=0.5}] coordinates{
-(6,17.5935255523)
-(5,14.3456625714)
-(4,14.9653085492)
-(3,86.2861504686)
-(2,162.865827184)
-(1,249.391608316)
-};
 
+\addplot+ [red, mark options={scale=0.5}] coordinates{
+(5,20.434733431)
+(4,21.197498653)
+(3,34.0558480273)
+(2,205.929270384)
+(1,359.851084059)
+
+};
+\addlegendentry{Maximum};
+
+\addplot+ [blue, mark options={scale=0.5}] coordinates{
+(5,9.4257952221)
+(4,10.4358359838)
+(3,16.8593550257)
+(2,100.843969227)
+(1,230.421916574)
+
+};
+\addlegendentry{Average};
 \end{axis}
 \end{tikzpicture}
 

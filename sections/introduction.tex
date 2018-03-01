@@ -1,38 +1,23 @@
 \section{Introduction}
 \label{sec:introduction}
 
-In traditional robotics applications such as pick and place, spray-painting and spot-welding, the robots either do not need very high accuracy or they are programmed by teaching, where the important parameter is the \textbf{repeatability} of the robot rather than the \textbf{accuracy}. Repeatability refers to the robot's capability to return precisely to the same location as previously taught, whereas accuracy refers to the robot's capability to precisely reach a pose computed based on the robot's kinematic model. 
+In traditional robotics applications such as pick and place, spray-painting and spot-welding, the robots either do not need very high accuracy or they are programmed by teaching, where the \textbf{repeatability} of the robot is more important than the \textbf{accuracy}. Repeatability refers to the robot's capability to return precisely to the same location as previously taught, whereas accuracy refers to the robot's capability to precisely reach a pose computed based on the robot's kinematic model. 
 
 However, there are many applications where the accuracy of the robot becomes very crucial, given that the robot has to adapt to each task automatically with a great precision. Consider, for example, a robot drilling task in \cite{Suarez-Ruiz2018} where the robot is supposed to drill several holes at precisely-defined locations on a workpiece. The workpiece can be different for each task, and the placement within the workspace may not be precisely known. Programming by teaching in this case requires manual re-programming for each workpiece which is very inefficient. To program the robot automatically for such task, the robot has to do a few things accurately: the robot has to scan the workpiece, determine the location of the holes, and finally move to that location accurately. The accuracy of such a robotic system depends on at least two things: The accuracy of the robot and the accuracy of the measurement system. 
-
-
 \begin{figure}[t]
   \centering
   \vspace*{2mm}
   \subfloat[]{\includegraphics[height=60mm]{robot_setup}}
-  \caption{Robot setup for the calibration}
+  \caption{Calibration Setup}
   \label{fig:robot_setup}
 \end{figure}
 
-The accuracy of the robot is determined by how closely the kinematic parameters of the robot model resemble the actual kinematic parameters of the physical robot. This is affected by the manufacturing process, the assembly process, and the wear and tear during the operation of the robot. \textbf{Robot kinematic calibration} is normally conducted to achieve a better accuracy, either by using an external measurement system (such as motion capture system or coordinate measuring machines) or by constraining the motion of the end-effector.
+The accuracy of the robot is determined by how closely the kinematic parameters of the robot's model resemble the actual kinematic parameters of the physical robot. This is affected by the manufacturing process, the assembly process, and the wear and tear during the operation of the robot. \textbf{Robot kinematic calibration} is usually conducted to achieve a better accuracy, either by using an external measurement system (such as motion capture system or coordinate measuring machines) or by constraining the motion of the end-effector.
 
-The accuracy of the measurement system can be divided into two parts: the accuracy of the measurement device itself and the accuracy of the relative pose from the robot frame to the measurement frame. The accuracy of the measurement device depends on the type of device that is used and its specification. For example, a camera system is generallly less precise as compared to a laser system, although a camera can give more information. The second part of the accuracy comes from the fact that the data from a measurement system is always obtained in the measurement device coordinate frame, and it needs to be transformed to the robot coordinate system. Hence, the relative pose between the robot coordinate frame and the measurement device frame needs to be obtained. This relative pose is often called the \textbf{extrinsic parameters} of the measurement device, and the method to estimate the extrinsic parameters is called \textbf{extrinsic calibration}.  
-
-
-In this paper we present SCALAR, a calibration method to simultaneously improve the accuracy of the robot and the measurement system. SCALAR calibrates simultaneously the kinematic parameters of the robot and the extrinsic parameters of a 2D \acl{lrf} (\ac{lrf}) using only the information provided by the \ac{lrf} attached to the robot end-effector. An \ac{lrf} is chosen because it gives very accurate measurement data both for the calibration and for the subsequent tasks (such as drilling).  
-
-The overall calibration procedure is as follows:
-\begin{enumerate}
-\item The \ac{lrf} is attached to the robot and three perpendicular planes are placed around the robot as shown in \fref{fig:robot_setup}. Only the rough estimate of the position and orientation of the planes are necessary to be known, so the setup can be easily done.
-\item For each plane, the robot is moved to several poses such that the \ac{lrf}'s 2D ray is projected onto the plane. The data from the \ac{lrf} as well as the robot's joint angles information are collected.
-\item An optimization algorithm is used to find the optimal robot's kinematic parameters together with the \ac{lrf} extrinsic parameters, using the geometric constraint that the projected \ac{lrf} data should be located on the three planes. 
-\end{enumerate}
-
-The remainder of the paper is as follows. In \sref{sec:related} we discuss the existing approaches to the calibration problem, both for the robot's kinematic and the \ac{lrf} extrinsic parameters, and how SCALAR differs from the other approaches. In \sref{sec:method}, SCALAR is explained in detail. A simulation study is presented in \sref{sec:simulation} to verify SCALAR, and finally we conclude with a few remarks in \sref{sec:conclusions}.  
+The accuracy of the measurement system can be divided into two parts: the accuracy of the measurement device itself and the accuracy of the relative pose between the robot frame and the measurement frame. The accuracy of the measurement device depends on the type of device that is used and its specification. For example, a camera system is generallly less precise as compared to a laser system, although a camera can give more information. The second part of the accuracy comes from the fact that the data from a measurement system is always obtained in the measurement device coordinate frame, and it needs to be transformed to the robot coordinate system. Hence, the relative pose between the robot coordinate frame and the measurement device frame needs to be obtained. This relative pose is often called the \textbf{extrinsic parameters} of the measurement device, and the method to estimate the extrinsic parameters is called \textbf{extrinsic calibration}.  
 
 
-
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.3}
 \begin{table*}[htp]
 \caption{Examples of Unconstrained Calibration}
 \label{tab:unconstrained_calib}
@@ -48,6 +33,21 @@ Newman et al. \cite{Newman2000} & Motoman P-8 & SMX Laser Tracker & 3.595 & 2.52
 \bottomrule
 \end{tabular}
 \end{table*}
+
+
+
+In this paper we present SCALAR, a calibration method to simultaneously improve the accuracy of the robot and the measurement system. SCALAR calibrates simultaneously the kinematic parameters of the robot and the extrinsic parameters of a 2D \acl{lrf} (\ac{lrf}) using only the information provided by the \ac{lrf} attached to the robot end-effector. An \ac{lrf} is chosen because it gives very accurate measurement data both for the calibration and for the subsequent tasks (such as drilling).  
+
+The overall calibration procedure is as follows:
+\begin{enumerate}
+\item The \ac{lrf} is attached to the robot and three perpendicular planes are placed around the robot as shown in \fref{fig:robot_setup}. Only the rough estimate of the position and orientation of the planes are necessary to be known, so the setup can be easily done.
+\item For each plane, the robot is moved to several poses such that the \ac{lrf}'s 2D ray is projected onto the plane. The data from the \ac{lrf} as well as the robot's joint angles information are collected.
+\item An optimization algorithm is used to find the optimal robot's kinematic parameters together with the \ac{lrf} extrinsic parameters, using the geometric constraint that the projected \ac{lrf} data should be located on the three planes. 
+\end{enumerate}
+
+The remainder of the paper is as follows. In \sref{sec:related} we discuss the existing approaches to the calibration problem both for the robot's kinematic parameters and the \ac{lrf}'s extrinsic parameters, and how SCALAR differs from the other approaches. In \sref{sec:method}, SCALAR is explained in detail. A simulation study is presented in \sref{sec:simulation} to verify SCALAR, and finally we conclude with a few remarks in \sref{sec:conclusions}.  
+
+
 
 \section{Related works}
 \label{sec:related}

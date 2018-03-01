@@ -1,25 +1,6 @@
 \section{Method}
 \label{sec:method}
 
-\renewcommand{\arraystretch}{1.5}
-\begin{table}[htp]
-\caption{Robot DH Parameters}
-\label{tab:dh_params}
-\centering
-\begin{tabular}{c c c c c}
-\toprule
-i &  \textbf{$\alpha_i \;[^o]$} & \textbf{$a_i \;[mm]$} &  \textbf{$\theta_i \;[^o]$}  & \textbf{$d_i \;[mm]$}\\
-\midrule
-1 & 0.0 & 0.0 & 0.0 & 345.0\\
-2 & -90.0 & 0.0 & -90.0 & 0.0\\
-3 & 0.0 & 305.0 & 90.0 & 0.0\\
-4 & 90.0 & -10.0 & 0.0 & 300.0\\
-5 & -90.0 & 0.0 & 0.0 & 0.0\\
-6 & 90.0 & 0.0 & 0.0 & 70.0\\
-\bottomrule
-\end{tabular}
-\end{table}
-
 The calibration setup is depicted in \fref{fig:robot_setup}, where three roughly perpendicular planes ($k=1,2,3$) are placed around the robot. An \ac{lrf} is attached to the robot flange. For each plane, the robot is moved to $N$ poses such that the \ac{lrf}'s ray is directed to the respective plane. One data set from the \ac{lrf} consists of hundreds of data points, so $M$ data points are selected from the \ac{lrf} data for each pose, and the robot's joint angles are recorded. 
 
 This section describes the detail on how to calibrate both the robot's kinematic parameters and the \ac{lrf}'s extrinsic parameters. First, the initial estimate of the LRF's extrinsic parameters is obtained using the linear least-squares method with the data from one of the planes. This is based on the algorithm in \cite{Zhang2004}, although presented differently for better clarity. After that, the robot's kinematic parameters and the LRF's extrinsic parameters are optimized simultaneously to satisfy the three planar constraints using Levenberg-Marquardt nonlinear optimization method. Finally, we explain how \ac{svd} can be used to analyse which calibration parameters are identifiable, and the steps to handle the unidentifiable parameters are then presented. 
@@ -126,17 +107,20 @@ For the unit vector parameters ($[r_x \quad r_y \quad r_z ]$ and  $[{^B}n_{k,x} 
 
 Further analysis on the observability of the parameters will be presented in the next section. 
 
+
+
+
 \subsection{Identifiability of the calibration parameters}
 \label{sec:third_step}
 
 Depending on the chosen robot calibration poses and the robot's kinematic model, some of the calibration parameters might not be observable due to the linear dependency among the parameters. This is a critical problem in calibration, as it will result in some of the parameters assuming erratic values which gives us unstable calibration result. To prevent that, we have to first analyse which calibration parameters are identifiable and which are not. 
 
-Following the approach in \cite{Joubair2015} and \cite{Hollerbach1996}, SVD is applied on the identification Jacobian matrix $\vb*{J}$. $\vb*{J}$ can be computed as follows. Let  $f_{kji}(\Phi)$ be the constraint equation on the data point $i$ at the robot pose $j$ and on the plane k, 
+Following the approach in \cite{Joubair2015} and \cite{Hollerbach1996}, SVD is applied on the identification Jacobian matrix $\vb*{J}$. $\vb*{J}$ can be computed as follows. Let  $f_{kji}(\Phi)$ be the geometric constraint equation on the data point $i$ at the robot pose $j$ and on the plane k, 
 \begin{equation}
 \label{eq:12}
- f_{kji}(\vb*{\Phi}) =  {{^B}\vb*{n}_k}^T \cdot {^B}\vb*{p}_{ji} - {^B}l_k \; .
+ f_{kji}(\vb*{\Phi}) =  {{^B}\vb*{n}_k}^T \cdot {^B}\vb*{p}_{ji} - {^B}l_k = 0 \; .
 \end{equation}
-Then $\vb*{J}$ can be computed by differentiating \eqref{eq:12} for all the data points $i = 1, \cdots, M$ at robot poses $j = 1, \cdots, N$ and for all the planes $k=1,2,3$, and stack them together as a matrix,
+Then $\vb*{J}$ can be computed by differentiating \eqref{eq:12} for all the data points $i = 1, \cdots, M$ at the robot poses $j = 1, \cdots, N$ and for all the planes $k=1,2,3$, then stack them together as a matrix,
 \renewcommand\arraystretch{1.5}
 \begin{equation}
 \vb*{J} = \begin{bmatrix}
@@ -151,18 +135,38 @@ We can then apply SVD to the matrix $\vb*{J}$,
 \begin{equation}
  \vb*{J} = \vb*{U}\vb*{\Sigma}\vb*{V}^T \; .
 \end{equation}
-Note that for this identification step, the parameters $[r_z \quad {^B}n_{1,z}\quad {^B}n_{2,z}\quad {^B}n_{3,z}]$ are excluded from the parameters vector $\Phi$, since those four parameters are obtained as linear combinations of other parameters (Equation \eqref{eq:10} and \eqref{eq:11}). That leaves us with 43-4 = 39 parameters in $\vb*{\Phi}$, which correlates to the 39 singular values in $\Sigma$. The number of zero singular values in $\Sigma$ is then equal to the number of unidentifiable parameters in the calibration procedure. For a given zero-value singular value $\sigma_r$, the r\textit{th} column vector of the matrix $\vb*{V}$ is the linear combination of the parameters $\vb*{\Phi}$ which cannot be identified independently. 
+Note that for this identification step, the parameters $[r_z \quad {^B}n_{1,z}\quad {^B}n_{2,z}\quad {^B}n_{3,z}]$ are excluded from the parameters vector $\vb*{\Phi}$, since those four parameters are obtained as linear combinations of other parameters (Equation \eqref{eq:10} and \eqref{eq:11}). That leaves us with 43-4 = 39 parameters in $\vb*{\Phi}$, which correlates to the 39 singular values in $\Sigma$. The number of zero singular values in $\Sigma$ is then equal to the number of unidentifiable parameters in the calibration procedure. For a given zero-value singular value $\sigma_r$, the r\textit{th} column vector of the matrix $\vb*{V}$ is the linear combination of the parameters $\vb*{\Phi}$ which cannot be identified independently. 
+
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[t]
+\caption{DH Parameters of Denso VS060}
+\label{tab:dh_params}
+\centering
+\begin{tabular}{c c c c c}
+\toprule
+i &  \textbf{$\alpha_i \;[^o]$} & \textbf{$a_i \;[mm]$} &  \textbf{$\theta_i \;[^o]$}  & \textbf{$d_i \;[mm]$}\\
+\midrule
+1 & 0.0 & 0.0 & 0.0 & 345.0\\
+2 & -90.0 & 0.0 & -90.0 & 0.0\\
+3 & 0.0 & 305.0 & 90.0 & 0.0\\
+4 & 90.0 & -10.0 & 0.0 & 300.0\\
+5 & -90.0 & 0.0 & 0.0 & 0.0\\
+6 & 90.0 & 0.0 & 0.0 & 70.0\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 In this paper, we use a Denso VS060 6-\ac{dof} industrial manipulator with its \textbf{DH} parameters presented in \tref{tab:dh_params}. The \ac{lrf}'s frame is defined such that the rotation part $[r_x \quad r_y \quad r_z \quad r_{\theta}] = [0 \quad 0 \quad 1 \quad \pi]$, and the position part $[p_x \quad p_y\quad p_z] = [-0.1275 \quad -0.033 \quad 0.1015]$. Applying the identifiability analysis to the system, we found that there are 7 sets of linearly dependent parameters out of the 39 parameters. 
 \begin{enumerate}
-\item The parameters $d_6$ (the translation along the z-axis of the 6\textit{th} link frame on the flange) and $p_z$ (the z coordinate of the \ac{lrf} frame) are linearly dependent. Physically this means that if we shift the origin of the frame 6 in its z direction by changing $d_6$, we can compensate by shifting the origin of the \ac{lrf} frame in the opposite direction by changing $p_z$.
-\item The parameters $\theta_6$ and $r_\theta$ are linearly dependent. These are the rotation of the robot's last link and the rotation of the \ac{lrf} frame around the same z-axis. 
-\item The parameters $d_2$ and $d_3$ are redundant. These correspond to the shift in the z-axis direction of the 2\textit{nd} and 3\textit{rd} link frames respectively, which are along the same direction, so they will compensate each other. 
-\item Lastly, we have four sets of linearly dependent parameters due to the linear combinations of the first link's DH parameters $[a_1, \alpha_1, \theta_1, d_1 ]$ and the three calibration planes' parameters. Physically, this relates to the fact that we can adjust the location of the base frame freely by changing the value of $[a_1, \alpha_1, \theta_1, d_1]$, and the planes' parameters will adjust according to the new base location. In other words, the base coordinate is not constrained (floating). 
+\item The parameters $d_6$ (the translation along the z-axis of the 6\textit{th} link frame on the flange) and $p_z$ (the z coordinate of the \ac{lrf} frame) are linearly dependent. Physically this means that if we shift the origin of the 6\textit{th} link's frame  in its z direction by changing $d_6$, we can compensate by shifting the origin of the \ac{lrf} frame in the opposite direction by changing $p_z$.
+\item The parameters $\theta_6$ and $r_\theta$ are linearly dependent. These correspond to the rotation of the 6\textit{th} link's frame and the rotation of the \ac{lrf}'s frame around the same z-axis. 
+\item The parameters $d_2$ and $d_3$ are linearly dependent. These correspond to the shift in the z-axis direction of the 2\textit{nd} and 3\textit{rd} link's frames respectively, which are along the same direction. 
+\item Lastly, we have four sets of linearly dependent parameters due to the linear combinations of the first link's DH parameters $[a_1, \alpha_1, \theta_1, d_1 ]$ and the three calibration planes' parameters. Physically, this relates to the fact that we can shift the robot's base frame freely by changing the value of $[a_1, \alpha_1, \theta_1, d_1]$, and the plane parameters will adjust according to the new base location. In other words, the base coordinate is not constrained (floating base). 
 \end{enumerate}
 
 For each set of the linearly dependent parameters, we can assign a fix value to one of the parameters. In this case, we fix the value of the parameters [$d_6, \theta_6, d_2, a_1, \alpha_1, \theta_1, d_1$] to their initial model's values. 
 
-These results apply to most existing 6-\ac{dof} industrial robots whose structure are the same as that of our Denso robot. 
+These results apply to most existing 6-\ac{dof} industrial robots whose structures are the same as that of our Denso robot. 
 
 

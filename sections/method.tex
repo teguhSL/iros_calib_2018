@@ -88,7 +88,7 @@ In the second step, the data from all the three planes are used to optimize the 
 
 The parameters $\vb*{\Phi}$ consist of the following:
 \begin{enumerate}
-\item Robot's kinematic parameters. We use the modified \textbf{DH} parameters \cite{Hayati1985} $[a_i \;, \alpha_i \;,\theta_i \;,d_i], i=1, 2, \cdots ,6$ to represent the robot's kinematics, so there are 24 \textbf{DH} parameters for a 6-\ac{dof} robot arm. 
+\item Robot's kinematic parameters. We use  \textbf{DH} parameters \cite{Craig1986} $[a_i \;, \alpha_i \;,\theta_i \;,d_i], i=1, 2, \cdots ,6$ to represent the robot's kinematics, so there are 24 \textbf{DH} parameters for a 6-\ac{dof} robot arm. 
 \item \ac{lrf}'s extrinsic parameters. As mentioned in the previous section, we use the axis angle representation for the rotation part $[r_x \quad r_y \quad r_z \quad r_{\theta}]$, and $[p_x \quad p_y\quad p_z]$ for the position part. 
 \item Plane parameters. Each plane can be described by a unit vector $[{^B}n_{k,x}\quad {^B}n_{k,y}\quad {^B}n_{k,z}]$ normal to the plane and its perpendicular distance from the robot base's coordinate system origin ${^B}l_{k}$, so there are 12 parameters for 3 planes.
 \end{enumerate}
@@ -147,12 +147,12 @@ Note that for this identification step, the parameters $[r_z \quad {^B}n_{1,z}\q
 \toprule
 i &  \textbf{$\alpha_i \;[^o]$} & \textbf{$a_i \;[mm]$} &  \textbf{$\theta_i \;[^o]$}  & \textbf{$d_i \;[mm]$}\\
 \midrule
-1 & 0.0 & 0.0 & 0.0 & 345.0\\
-2 & -90.0 & 0.0 & -90.0 & 0.0\\
-3 & 0.0 & 305.0 & 90.0 & 0.0\\
-4 & 90.0 & -10.0 & 0.0 & 300.0\\
-5 & -90.0 & 0.0 & 0.0 & 0.0\\
-6 & 90.0 & 0.0 & 0.0 & 70.0\\
+1 & 0.0 & 0.0 & $\theta_1$ & 345.0\\
+2 & -90.0 & 0.0 & $\theta_2$ - 90.0 & 0.0\\
+3 & 0.0 & 305.0 & $\theta_3$ + 90.0 & 0.0\\
+4 & 90.0 & -10.0 & $\theta_4$ & 300.0\\
+5 & -90.0 & 0.0 & $\theta_5$ & 0.0\\
+6 & 90.0 & 0.0 & $\theta_6$ & 70.0\\
 \bottomrule
 \end{tabular}
 \end{table}

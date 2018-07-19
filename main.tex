@@ -31,6 +31,8 @@
 \newcommand{\sref}[1]{Section~\ref{#1}}
 % Math commands
 \newcommand{\mdof}{\text{\ac{dof}}}
+%layout
+\usepackage{paralist}
 
 % Acronyms
 \usepackage[acronym,shortcuts]{glossaries}
@@ -53,8 +55,8 @@ co-rrect}
 \title{\LARGE
   \textbf{SCALAR - Simultaneous Calibration of 2D Laser And Robot's Kinematic Parameters Using Three Planar Constraints}}
 
-\author{Teguh Santoso Lembono, Francisco Su\'{a}rez-Ruiz, and Quang-Cuong Pham%
-  \thanks{The authors are with the School of Mechanical and Aerospace
+\author{Teguh Santoso Lembono$^{1,2}$, Francisco Su\'{a}rez-Ruiz$^{2}$, and Quang-Cuong Pham$^{2}$%
+  \thanks{$^1$ Idiap Research Institute, Martigny, Switzerland \quad $^2$ School of Mechanical and Aerospace
           Engineering, Nanyang Technological University, Singapore.}}
 
 \begin{document}
@@ -71,12 +73,11 @@ co-rrect}
 
 
 \section*{Acknowledgment}
-This work was supported in part by NTUitive Gap Fund NGF-2016-01-028
-and SMART Innovation Grant NG000074-ENG.
+This work was supported in part by NTUitive Gap Fund NGF-2016-01-028, SMART Innovation Grant NG000074-ENG, and the European Union under the EU H2020 collaborative project MEMMO (Memory of Motion), Grant Agreement No. 780684.
 
 
 % You can use one of these two commands to balance the last page columns
-\IEEEtriggeratref{7}
+%\IEEEtriggeratref{7}
 % \IEEEtriggercmd{\enlargethispage{-100mm}}
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,references}

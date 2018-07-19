@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  2 MAR 2018 11:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.18)  18 JUL 2018 20:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **method.tex
 (./method.tex
 LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
 ! Undefined control sequence.
 l.1 \section
             {Method}
@@ -2749,7 +2749,7 @@ Overfull \hbox (18.20839pt too wide) in paragraph at lines 29--32
 
 ! Undefined control sequence.
 l.34   {\vb
-           *{x}_{ji}}^T \cdot \vb*{\Phi}_L = {^B}l_1 -  n^{'}_{j,4} \; ,
+           *{x}_{ji}}^T \cdot \vb*{\Phi}_L = {^B}l_1 -  n^{'}_{j,4} \mathrm{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2758,7 +2758,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.34   {\vb*{x}_{ji}}^T \cdot \vb
-                                 *{\Phi}_L = {^B}l_1 -  n^{'}_{j,4} \; ,
+                                 *{\Phi}_L = {^B}l_1 -  n^{'}_{j,4} \mathrm{...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2766,16 +2766,11 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (102.20988pt too wide) detected at line 35
+Overfull \hbox (121.65437pt too wide) detected at line 35
 [][][] \OMS/cmsy/m/n/10 ^^A ^^C\OT1/cmr/m/n/10 ^^H[] = []\OML/cmm/m/it/10 l[] \
-OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[] ;
+OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[][] ;
  []
 
-Missing character: There is no w in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
 
 ! LaTeX Error: Environment multline undefined.
 
@@ -2797,6 +2792,19 @@ of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38   \vb*
+           {x}_{ji} = \left[{^L}p_{i,x}\;n^{'}_{j,1} \quad {^L}p_{i,x}\;n^{'...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 Missing character: There is no * in font nullfont!
 Missing character: There is no x in font nullfont!
@@ -3096,47 +3104,47 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no , in font nullfont!
 
-Overfull \hbox (17.59836pt too wide) in paragraph at lines 35--46
-  $[] \OT1/cmr/m/n/10 =
+Overfull \hbox (37.59836pt too wide) in paragraph at lines 38--46
+[]$[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (167.88422pt too wide) in paragraph at lines 35--46
+Overfull \hbox (167.88422pt too wide) in paragraph at lines 38--46
 [] [] 
  []
 
 
-Overfull \hbox (147.39056pt too wide) in paragraph at lines 35--46
+Overfull \hbox (147.39056pt too wide) in paragraph at lines 38--46
 [][]  \OML/cmm/m/it/10 ;$
  []
 
 
-Overfull \hbox (23.76389pt too wide) in paragraph at lines 35--46
+Overfull \hbox (23.76389pt too wide) in paragraph at lines 38--46
 \OT1/cmr/m/n/10 ^^H[] =
  []
 
 
-Overfull \hbox (135.93192pt too wide) in paragraph at lines 35--46
+Overfull \hbox (135.93192pt too wide) in paragraph at lines 38--46
 [][]  \OML/cmm/m/it/10 :$
  []
 
 
-Overfull \hbox (3.44513pt too wide) in paragraph at lines 35--46
+Overfull \hbox (3.44513pt too wide) in paragraph at lines 38--46
 \OML/cmm/m/it/10 i$
  []
 
 
-Overfull \hbox (10.79166pt too wide) in paragraph at lines 35--46
+Overfull \hbox (10.79166pt too wide) in paragraph at lines 38--46
 \OML/cmm/m/it/10 M$
  []
 
 
-Overfull \hbox (9.12497pt too wide) in paragraph at lines 35--46
+Overfull \hbox (9.12497pt too wide) in paragraph at lines 38--46
 \OML/cmm/m/it/10 N$
  []
 
 
-Overfull \hbox (19.91663pt too wide) in paragraph at lines 35--46
+Overfull \hbox (19.91663pt too wide) in paragraph at lines 38--46
 \OML/cmm/m/it/10 NM$
  []
 
@@ -4415,17 +4423,6 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no d in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
@@ -4437,11 +4434,11 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no [ in font nullfont!
-\citation{Hayati1985}
+\citation{Craig1986}
 ! Undefined control sequence.
 <write> ...: Citation `\@citeb ' on page \thepage 
                                                   \space undefined\on@line .
-l.91 ...d \textbf{DH} parameters \cite{Hayati1985}
+l.91 ...e  \textbf{DH} parameters \cite{Craig1986}
                                                    $[a_i \;, \alpha_i \;,\th...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4450,7 +4447,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation `Hayati1985' on page  undefined on input line 91.
+LaTeX Warning: Citation `Craig1986' on page  undefined on input line 91.
 
 Missing character: There is no ] in font nullfont!
 Missing character: There is no t in font nullfont!
@@ -7551,9 +7548,6 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 0 in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
 Missing character: There is no 3 in font nullfont!
 Missing character: There is no 4 in font nullfont!
 Missing character: There is no 5 in font nullfont!
@@ -7585,6 +7579,7 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no 5 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 0 in font nullfont!
+Missing character: There is no + in font nullfont!
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
@@ -7599,9 +7594,6 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no - in font nullfont!
 Missing character: There is no 1 in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 0 in font nullfont!
@@ -7622,14 +7614,8 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 0 in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
 Missing character: There is no 6 in font nullfont!
 Missing character: There is no 9 in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 0 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 0 in font nullfont!
@@ -9301,11 +9287,11 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 170--171
 
  
 Here is how much of TeX's memory you used:
- 33 strings out of 493029
- 395 string characters out of 6136234
- 64114 words of memory out of 5000000
- 3665 multiletter control sequences out of 15000+600000
+ 33 strings out of 494910
+ 394 string characters out of 6179836
+ 58120 words of memory out of 5000000
+ 3421 multiletter control sequences out of 15000+600000
  4294 words of font info for 16 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 36 hyphenation exceptions out of 8191
  18i,7n,21p,797b,186s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!
